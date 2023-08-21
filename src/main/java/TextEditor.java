@@ -212,6 +212,22 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
+    public void selectText() {
+        textArea.getTextArea().selectAll();
+    }
+
+    public void copyText() {
+        textArea.getTextArea().copy();
+    }
+
+    public void pasteText() {
+        textArea.getTextArea().paste();
+    }
+
+    public void cutText() {
+        textArea.getTextArea().cut();
+    }
+
     public void insertTimeAndDate() {
         String dateTime = java.time.LocalDateTime.now().toString();
         textArea.getTextArea().insert(dateTime+"\n" , 0);

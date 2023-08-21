@@ -36,6 +36,25 @@ public class MenuBar extends Component {
         convertToPDF.addActionListener(listener);
         exitMenuItem.addActionListener(listener);
 
+        // Edit tab
+        JMenu editMenu = new JMenu("Edit");
+        menuBar.add(editMenu);
+
+        JMenuItem selectallMenuItem = new JMenuItem("Select All");
+        JMenuItem copyMenuItem = new JMenuItem("Copy");
+        JMenuItem pasteMenuItem = new JMenuItem("Paste");
+        JMenuItem cutMenuItem = new JMenuItem("Cut");
+
+        editMenu.add(selectallMenuItem);
+        editMenu.add(copyMenuItem);
+        editMenu.add(pasteMenuItem);
+        editMenu.add(cutMenuItem);
+
+        selectallMenuItem.addActionListener(listener);
+        copyMenuItem.addActionListener(listener);
+        pasteMenuItem.addActionListener(listener);
+        cutMenuItem.addActionListener(listener);
+
         // Search tab
         JMenu searchMenu = new JMenu("Search");
         menuBar.add(searchMenu);

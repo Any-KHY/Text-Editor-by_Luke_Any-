@@ -55,6 +55,19 @@ public class MenuHandler implements ActionListener {
                 }
                 break;
 
+            case "Select All":
+                textEditor.selectText();
+                break;
+            case "Copy":
+                textEditor.copyText();
+                break;
+            case "Paste":
+                textEditor.pasteText();
+                break;
+            case "Cut":
+                textEditor.cutText();
+                break;
+
             case "Time and Date":
                 textEditor.insertTimeAndDate();
                 break;
