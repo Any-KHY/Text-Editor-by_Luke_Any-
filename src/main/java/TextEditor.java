@@ -2,14 +2,14 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.*;
-import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.time.LocalDateTime;
 
@@ -39,7 +39,7 @@ public class TextEditor extends Component implements ActionListener{
         mainFrame = new JFrame();
         mainFrame.setTitle("Text Editor");
         mainFrame.setSize(WINDOW_WIDTH, WINDOW_HEGHT);
-        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         // Menu Bar
         menuBar = MenuBar.createMenuBar(actionListener);
@@ -70,7 +70,7 @@ public class TextEditor extends Component implements ActionListener{
 
     public void openNewWindow() {
         TextEditor newEditor = new TextEditor();
-        //newEditor.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
+        newEditor.mainFrame.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
         newEditor.mainFrame.setVisible(true);
     }
 
@@ -253,6 +253,9 @@ public class TextEditor extends Component implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+    }
+    public void windowClosing(WindowEvent e) {
+        mainFrame.dispose(); // Close only this window
     }
 }
 
