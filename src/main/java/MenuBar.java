@@ -1,9 +1,6 @@
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.time.LocalDateTime;
 
 public class MenuBar extends Component {
 
@@ -70,13 +67,10 @@ public class MenuBar extends Component {
         JMenu viewMenu = new JMenu("View");
         menuBar.add(viewMenu);
 
-        JMenuItem scpcMenuItem = new JMenuItem("SCPC");
         JMenuItem timeDateMenuItem = new JMenuItem("Time and Date");
 
-        viewMenu.add(scpcMenuItem);
         viewMenu.add(timeDateMenuItem);
 
-        scpcMenuItem.addActionListener(listener);
         timeDateMenuItem.addActionListener(listener);
 
         // Help tab

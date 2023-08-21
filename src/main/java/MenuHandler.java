@@ -43,10 +43,6 @@ public class MenuHandler implements ActionListener {
                 textEditor.search();
                 break;
 
-            case "SCPC":
-                // Implement select, copy, paste, cut
-                break;
-
             case "Convert to PDF":
                 try {
                     textEditor.convertToPDF();
