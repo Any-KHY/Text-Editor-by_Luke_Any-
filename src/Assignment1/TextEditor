@@ -1,0 +1,241 @@
+package Assignment1;
+
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.time.LocalDateTime;
+
+public class TextEditor extends JFrame implements ActionListener {
+    private JTextArea textArea;
+    private JLabel timeLabel;
+    public TextEditor() {
+        createGUI();
+    }
+
+    private void createGUI() {
+        setTitle("Text Editor");
+        setSize(800, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+        timeLabel = new JLabel();
+        timeLabel.setHorizontalAlignment(JLabel.CENTER);
+        updateTimeLabel(); // Initialize time and date
+
+
+        textArea = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        add(scrollPane, BorderLayout.CENTER);
+
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu fileMenu = new JMenu("File");
+        JMenu editMenu = new JMenu("Edit");
+        JMenu searchMenu = new JMenu("Search");
+        JMenu viewMenu = new JMenu("View");
+        JMenu helpMenu = new JMenu("Help");
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(searchMenu);
+        menuBar.add(viewMenu);
+        menuBar.add(helpMenu);
+
+        JMenuItem newMenuItem = new JMenuItem("New");
+        JMenuItem openMenuItem = new JMenuItem("Open");
+        JMenuItem saveMenuItem = new JMenuItem("Save");
+        JMenuItem printMenuItem = new JMenuItem("Print");
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        JMenuItem selectallMenuItem = new JMenuItem("Select All");
+        JMenuItem copyMenuItem = new JMenuItem("Copy");
+        JMenuItem pasteMenuItem = new JMenuItem("Paste");
+        JMenuItem cutMenuItem = new JMenuItem("Cut");
+        JMenuItem searchMenuItem = new JMenuItem("Search");
+        JMenuItem timeDateMenuItem = new JMenuItem("Time and Date");
+        JMenuItem aboutMenuItem = new JMenuItem("About");
+
+
+        fileMenu.add(newMenuItem);
+        fileMenu.add(openMenuItem);
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(printMenuItem);
+        fileMenu.add(exitMenuItem);
+        editMenu.add(selectallMenuItem);
+        editMenu.add(copyMenuItem);
+        editMenu.add(pasteMenuItem);
+        editMenu.add(cutMenuItem);
+        searchMenu.add(searchMenuItem);
+        viewMenu.add(timeDateMenuItem);
+        helpMenu.add(aboutMenuItem);
+
+
+        newMenuItem.addActionListener(this);
+        openMenuItem.addActionListener(this);
+        saveMenuItem.addActionListener(this);
+        printMenuItem.addActionListener(this);
+        exitMenuItem.addActionListener(this);
+        searchMenuItem.addActionListener(this);
+        selectallMenuItem.addActionListener(this);
+        copyMenuItem.addActionListener(this);
+        pasteMenuItem.addActionListener(this);
+        cutMenuItem.addActionListener(this);
+        timeDateMenuItem.addActionListener(this);
+        aboutMenuItem.addActionListener(this);
+
+
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        switch (command) {
+            case "New":
+                openNewWindow();
+                setTitle("Text Editor");
+                break;
+            case "Open":
+                openFile();
+                break;
+            case "Save":
+                saveFile();
+                break;
+            case "Print":
+                printText();
+                break;
+            case "Exit":
+                dispose();
+                break;
+            case "Search":
+                search();
+                break;
+            case "Select All":
+                selectText();
+                break;
+            case "Copy":
+                copyText();
+                break;
+            case "Paste":
+                pasteText();
+                break;
+            case "Cut":
+                cutText();
+                break;
+            case "Time and Date":
+                insertTimeAndDate();
+                break;
+            case "About":
+                showAbout();
+                break;
+
+        }
+    }
+    private void openNewWindow() {
+        TextEditor newEditor = new TextEditor();
+        newEditor.setLocation(getX() + 50, getY() + 50);
+        newEditor.setVisible(true);
+    }
+    private void updateTimeLabel() {
+        LocalDateTime now = LocalDateTime.now();
+        String formattedDateTime = now.toString();
+        timeLabel.setText(formattedDateTime);
+        setTitle("Text Editor - " + formattedDateTime);
+    }
+    private void openFile() {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
+        fileChooser.setFileFilter(filter);
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                FileReader fileReader = new FileReader(selectedFile);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                textArea.setText("");
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    textArea.append(line + "\n");
+                }
+                setTitle("Text Editor - " + selectedFile.getName());
+                bufferedReader.close();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error reading the file.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+    }
+    private void saveFile() {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
+        fileChooser.setFileFilter(filter);
+        int result = fileChooser.showSaveDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                FileWriter fileWriter = new FileWriter(selectedFile);
+                fileWriter.write(textArea.getText());
+                fileWriter.close();
+                setTitle("Text Editor - " + selectedFile.getName());
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void search() {
+        String searchText = JOptionPane.showInputDialog(this, "Enter search text:");
+        if (searchText != null && !searchText.isEmpty()) {
+            String text = textArea.getText();
+            int index = text.indexOf(searchText);
+            if (index != -1) {
+                textArea.setCaretPosition(index);
+                textArea.select(index, index + searchText.length());
+            } else {
+                JOptionPane.showMessageDialog(this, "Text not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+
+    private void insertTimeAndDate() {
+        String dateTime = java.time.LocalDateTime.now().toString();
+        textArea.insert(dateTime, textArea.getCaretPosition());
+    }
+
+    private void showAbout() {
+        String message = "Text Editor\n\nDeveloped by:\nLuke\nAny";
+        JOptionPane.showMessageDialog(this, message, "About", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void printText() {
+        try {
+            textArea.print();
+        } catch (java.awt.print.PrinterException ex) {
+            JOptionPane.showMessageDialog(this, "Error printing the text.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void selectText() {
+        textArea.selectAll();
+    }
+
+    private void copyText() {
+        textArea.copy();
+    }
+
+    private void pasteText() {
+        textArea.paste();
+    }
+
+    private void cutText() {
+        textArea.cut();
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new TextEditor());
+    }
+}
