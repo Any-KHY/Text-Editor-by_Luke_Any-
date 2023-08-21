@@ -9,5 +9,8 @@
         <module name="Assignment1-2023-Luke-Any" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Assignment1-2023-Luke-Any" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -16,12 +16,27 @@
 
     <dependencies>
 
-        <!-- For syntax-text - https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea -->
+        <!-- For Fecsyntax -text - https://mvnrepository.com/artifact/com.fifesoft/rsyntaxtextarea -->
         <dependency>
             <groupId>com.fifesoft</groupId>
             <artifactId>rsyntaxtextarea</artifactId>
             <version>3.3.3</version>
         </dependency>
+
+        <!-- For PDF Conversion https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.27</version>
+        </dependency>
+
     </dependencies>
+
+
 
 </project>
