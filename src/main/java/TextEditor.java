@@ -1,3 +1,10 @@
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.*;
+import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -6,233 +13,246 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.time.LocalDateTime;
 
-public class TextEditor extends JFrame implements ActionListener {
-    private JTextArea textArea;
+
+public class TextEditor extends Component implements ActionListener{
+
+    public static final int WINDOW_WIDTH = 800;
+    public static final int WINDOW_HEGHT = 600;
+    public static JFrame mainFrame;
+
+    //private JFrame mainFrame;
+    private TextArea textArea;
+    private JMenuBar menuBar;
     private JLabel timeLabel;
-    public TextEditor() {
-        createGUI();
+    private Rectangle bounds = new Rectangle(0,0,WINDOW_WIDTH, WINDOW_HEGHT);
+
+    public static String fileExtension;
+
+    public TextEditor(){
+        createOuterFrame();
     }
 
-    private void createGUI() {
-        setTitle("Text Editor");
-        setSize(800, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    private void createOuterFrame() {
+        ActionListener actionListener = new MenuHandler(this);
 
+        // Frame set up
+        mainFrame = new JFrame();
+        mainFrame.setTitle("Text Editor");
+        mainFrame.setSize(WINDOW_WIDTH, WINDOW_HEGHT);
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        // Menu Bar
+        menuBar = MenuBar.createMenuBar(actionListener);
+        mainFrame.setJMenuBar(menuBar);
+
+        // DisplayArea
+        Container content = mainFrame.getContentPane();
+        content.setLayout(new BorderLayout());
+        textArea = new TextArea(bounds);
+        content.add(textArea);
+
+        // Update Time
         timeLabel = new JLabel();
         timeLabel.setHorizontalAlignment(JLabel.CENTER);
         updateTimeLabel(); // Initialize time and date
 
+        // Set location and visibility
+        mainFrame.setLocationRelativeTo(null); // set location to the center
+        mainFrame.setVisible(true); // set visible
 
-        textArea = new JTextArea();
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        add(scrollPane, BorderLayout.CENTER);
-
-        JMenuBar menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
-
-        JMenu fileMenu = new JMenu("File");
-        JMenu editMenu = new JMenu("Edit");
-        JMenu searchMenu = new JMenu("Search");
-        JMenu viewMenu = new JMenu("View");
-        JMenu helpMenu = new JMenu("Help");
-
-        menuBar.add(fileMenu);
-        menuBar.add(editMenu);
-        menuBar.add(searchMenu);
-        menuBar.add(viewMenu);
-        menuBar.add(helpMenu);
-
-        JMenuItem newMenuItem = new JMenuItem("New");
-        JMenuItem openMenuItem = new JMenuItem("Open");
-        JMenuItem saveMenuItem = new JMenuItem("Save");
-        JMenuItem printMenuItem = new JMenuItem("Print");
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
-        JMenuItem selectallMenuItem = new JMenuItem("Select All");
-        JMenuItem copyMenuItem = new JMenuItem("Copy");
-        JMenuItem pasteMenuItem = new JMenuItem("Paste");
-        JMenuItem cutMenuItem = new JMenuItem("Cut");
-        JMenuItem searchMenuItem = new JMenuItem("Search");
-        JMenuItem timeDateMenuItem = new JMenuItem("Time and Date");
-        JMenuItem aboutMenuItem = new JMenuItem("About");
-
-
-        fileMenu.add(newMenuItem);
-        fileMenu.add(openMenuItem);
-        fileMenu.add(saveMenuItem);
-        fileMenu.add(printMenuItem);
-        fileMenu.add(exitMenuItem);
-        editMenu.add(selectallMenuItem);
-        editMenu.add(copyMenuItem);
-        editMenu.add(pasteMenuItem);
-        editMenu.add(cutMenuItem);
-        searchMenu.add(searchMenuItem);
-        viewMenu.add(timeDateMenuItem);
-        helpMenu.add(aboutMenuItem);
-
-
-        newMenuItem.addActionListener(this);
-        openMenuItem.addActionListener(this);
-        saveMenuItem.addActionListener(this);
-        printMenuItem.addActionListener(this);
-        exitMenuItem.addActionListener(this);
-        searchMenuItem.addActionListener(this);
-        selectallMenuItem.addActionListener(this);
-        copyMenuItem.addActionListener(this);
-        pasteMenuItem.addActionListener(this);
-        cutMenuItem.addActionListener(this);
-        timeDateMenuItem.addActionListener(this);
-        aboutMenuItem.addActionListener(this);
-
-
-        setLocationRelativeTo(null);
-        setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        switch (command) {
-            case "New":
-                openNewWindow();
-                setTitle("Text Editor");
-                break;
-            case "Open":
-                openFile();
-                break;
-            case "Save":
-                saveFile();
-                break;
-            case "Print":
-                printText();
-                break;
-            case "Exit":
-                dispose();
-                break;
-            case "Search":
-                search();
-                break;
-            case "Select All":
-                selectText();
-                break;
-            case "Copy":
-                copyText();
-                break;
-            case "Paste":
-                pasteText();
-                break;
-            case "Cut":
-                cutText();
-                break;
-            case "Time and Date":
-                insertTimeAndDate();
-                break;
-            case "About":
-                showAbout();
-                break;
-
-        }
-    }
-    private void openNewWindow() {
-        TextEditor newEditor = new TextEditor();
-        newEditor.setLocation(getX() + 50, getY() + 50);
-        newEditor.setVisible(true);
-    }
-    private void updateTimeLabel() {
+    public void updateTimeLabel() {
         LocalDateTime now = LocalDateTime.now();
         String formattedDateTime = now.toString();
         timeLabel.setText(formattedDateTime);
-        setTitle("Text Editor - " + formattedDateTime);
     }
-    private void openFile() {
+
+    public void openNewWindow() {
+        TextEditor newEditor = new TextEditor();
+        //newEditor.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
+        newEditor.mainFrame.setVisible(true);
+    }
+
+    public void openFile() {
+
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
-        fileChooser.setFileFilter(filter);
-        int result = fileChooser.showOpenDialog(this);
+
+        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
+        fileChooser.addChoosableFileFilter(textFilter);
+
+        FileNameExtensionFilter odtFilter = new FileNameExtensionFilter("OpenDocument Text Files" , "odt");
+        fileChooser.addChoosableFileFilter(odtFilter);
+
+        FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp");
+        fileChooser.addChoosableFileFilter(sourceCodeFilter);
+
+        int result = fileChooser.showOpenDialog(mainFrame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
+            extractFileExtension(selectedFile.getName());
+
             try {
                 FileReader fileReader = new FileReader(selectedFile);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                textArea.setText("");
+                textArea.resetTextArea(fileExtension);
+                textArea.getTextArea().setText("");
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
-                    textArea.append(line + "\n");
+                    textArea.getTextArea().append(line + "\n");
                 }
-                setTitle("Text Editor - " + selectedFile.getName());
+                mainFrame.setTitle("Text Editor - " + selectedFile.getName());
                 bufferedReader.close();
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error reading the file.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(mainFrame, "Error reading the file.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
         }
     }
-    private void saveFile() {
+
+    public void saveFile() {
+
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
-        fileChooser.setFileFilter(filter);
-        int result = fileChooser.showSaveDialog(this);
+
+        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
+        fileChooser.addChoosableFileFilter(textFilter);
+
+        FileNameExtensionFilter odtFilter = new FileNameExtensionFilter("OpenDocument Text Files" , "odt");
+        fileChooser.addChoosableFileFilter(odtFilter);
+
+        FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp");
+        fileChooser.addChoosableFileFilter(sourceCodeFilter);
+
+        int result = fileChooser.showOpenDialog(mainFrame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
+            String outputPath = selectedFile.getAbsolutePath();
+//            if(!selectedFile.getName().endsWith(".txt")){
+//                selectedFile.renameTo(new File(outputPath + "txt"));
+//            }
+            extractFileExtension(selectedFile.getName());
             try {
                 FileWriter fileWriter = new FileWriter(selectedFile);
-                fileWriter.write(textArea.getText());
+                fileWriter.write(textArea.getTextArea().getText());
                 fileWriter.close();
-                setTitle("Text Editor - " + selectedFile.getName());
+                textArea.resetTextArea(fileExtension);
+                mainFrame.setTitle("Text Editor - " + selectedFile.getName());
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(mainFrame, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
-    private void search() {
-        String searchText = JOptionPane.showInputDialog(this, "Enter search text:");
+    public void convertToPDF() throws IOException {
+
+        JFileChooser fileChooser = new JFileChooser();
+
+        FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Files", "pdf");
+        fileChooser.setFileFilter(pdfFilter);
+
+        int result = fileChooser.showOpenDialog(mainFrame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String outputPath = selectedFile.getAbsolutePath();
+            try {
+
+                PDDocument document = new PDDocument();
+                PDPage page = new PDPage();
+                document.addPage(page);
+
+                try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+
+                    String text = textArea.getTextArea().getText();
+
+                    PDRectangle mediaBox = page.getMediaBox();
+                    float margin = 50;
+                    float width = mediaBox.getWidth() - 2 * margin;
+                    float startY = mediaBox.getHeight() - margin;
+                    float startX = margin;
+
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(startX, startY);
+                    contentStream.setFont(PDType1Font.HELVETICA, 12);
+                    contentStream.setLeading(14.5f);
+
+                    String[] lines = text.split("\n");
+                    for (String line : lines) {
+                        contentStream.showText(line);
+                        contentStream.newLine();
+                    }
+                    contentStream.endText();
+                }
+
+                document.save(outputPath);
+                JOptionPane.showMessageDialog(mainFrame, "Text converted to PDF.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(mainFrame, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void printText() {
+        try {
+            textArea.getTextArea().print();
+        } catch (java.awt.print.PrinterException ex) {
+            JOptionPane.showMessageDialog(mainFrame, "Error printing the text.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void search() {
+        String searchText = JOptionPane.showInputDialog(mainFrame, "Enter search text:");
         if (searchText != null && !searchText.isEmpty()) {
-            String text = textArea.getText();
+            String text = textArea.getTextArea().getText();
             int index = text.indexOf(searchText);
             if (index != -1) {
-                textArea.setCaretPosition(index);
-                textArea.select(index, index + searchText.length());
+                textArea.getTextArea().setCaretPosition(index);
+                textArea.getTextArea().select(index, index + searchText.length());
             } else {
                 JOptionPane.showMessageDialog(this, "Text not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
 
-    private void insertTimeAndDate() {
+    public void selectText() {
+        textArea.getTextArea().selectAll();
+    }
+
+    public void copyText() {
+        textArea.getTextArea().copy();
+    }
+
+    public void pasteText() {
+        textArea.getTextArea().paste();
+    }
+
+    public void cutText() {
+        textArea.getTextArea().cut();
+    }
+
+    public void insertTimeAndDate() {
         String dateTime = java.time.LocalDateTime.now().toString();
-        textArea.insert(dateTime, textArea.getCaretPosition());
+        textArea.getTextArea().insert(dateTime+"\n" , 0);
     }
 
-    private void showAbout() {
+    public void showAbout() {
         String message = "Text Editor\n\nDeveloped by:\nLuke\nAny";
-        JOptionPane.showMessageDialog(this, message, "About", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(mainFrame, message, "About", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void printText() {
-        try {
-            textArea.print();
-        } catch (java.awt.print.PrinterException ex) {
-            JOptionPane.showMessageDialog(this, "Error printing the text.", "Error", JOptionPane.ERROR_MESSAGE);
+
+    public void extractFileExtension(String fileName){
+        // extract file type for syntax highlight
+        int extensionDotIndex = fileName.lastIndexOf(".");
+        if (extensionDotIndex > 0) {
+            fileExtension = fileName.substring(extensionDotIndex + 1);
         }
-    }
-    private void selectText() {
-        textArea.selectAll();
-    }
-
-    private void copyText() {
-        textArea.copy();
-    }
-
-    private void pasteText() {
-        textArea.paste();
-    }
-
-    private void cutText() {
-        textArea.cut();
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new TextEditor());
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    }
 }
+
