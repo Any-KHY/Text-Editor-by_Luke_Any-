@@ -1,10 +1,19 @@
+import java.awt.*;
+
 public class TextEditorConfig {
 
-    //private String default_font;
+    private String defaultFont;
     private int defaultFontSize;
-    private String defaultFontColour;
-    private int tabWidth;
-    //private boolean autoSave;
+    private Color defaultFontColour;
+
+
+    public String getDefaultFont() {
+        return defaultFont;
+    }
+
+    public void setDefaultFont(String defaultFont) {
+        this.defaultFont = defaultFont;
+    }
 
     public int getDefaultFontSize() {
         return defaultFontSize;
@@ -14,19 +23,12 @@ public class TextEditorConfig {
         this.defaultFontSize = defaultFontSize;
     }
 
-    public String getDefaultFontColour() {
+    public Color getDefaultFontColour() {
         return defaultFontColour;
     }
 
-    public void setDefaultFontColour(String defaultFontColour) {
+    public void setDefaultFontColour(Color defaultFontColour) {
         this.defaultFontColour = defaultFontColour;
     }
 
-    public int getTabWidth() {
-        return tabWidth;
-    }
-
-    public void setTabWidth(int tabWidth) {
-        this.tabWidth = tabWidth;
-    }
 }

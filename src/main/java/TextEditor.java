@@ -18,20 +18,15 @@ public class TextEditor extends Component implements ActionListener{
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEGHT = 600;
     public static JFrame mainFrame;
+    private static TextEditorConfig config;
 
-    //private JFrame mainFrame;
+
     private TextArea textArea;
     private JMenuBar menuBar;
     private JLabel timeLabel;
     private Rectangle bounds = new Rectangle(0,0,WINDOW_WIDTH, WINDOW_HEGHT);
 
     public static String fileExtension;
-
-    private static TextEditorConfig config;
-
-    //public TextEditor(TextEditorConfig config){
-    //    createOuterFrame();
-    //}
 
     public TextEditor(TextEditorConfig config) {
         this.config = config;
@@ -170,17 +165,39 @@ public class TextEditor extends Component implements ActionListener{
                 try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
 
                     String text = textArea.getTextArea().getText();
+                    int fontSize = textArea.getTextArea().getFont().getSize();
+                    String fontFamily = textArea.getTextArea().getFont().getFamily();
+                    //PDFont fontType = PDType1Font.HELVETICA;
+                    PDFont fontType;
+                    Color fontColor = textArea.getTextArea().getForeground();
+                    if (fontFamily.equalsIgnoreCase("Arial")) {
+                        fontType = PDType1Font.HELVETICA;
+                    } else if (fontFamily.equalsIgnoreCase("Times New Roman")) {
+                        fontType = PDType1Font.TIMES_ROMAN;
+                    } else {
+                        fontType = PDType1Font.HELVETICA; //default
+                    }
 
                     PDRectangle mediaBox = page.getMediaBox();
-                    float margin = 50;
-                    float width = mediaBox.getWidth() - 2 * margin;
+
+                    float margin;
+
+                    if(fontSize < 50/2 ) {
+                        margin = 50;
+                    } else {
+                        margin = fontSize/2 + 30;
+                    }
+
                     float startY = mediaBox.getHeight() - margin;
                     float startX = margin;
 
                     contentStream.beginText();
                     contentStream.newLineAtOffset(startX, startY);
-                    contentStream.setFont(PDType1Font.HELVETICA, 12);
-                    contentStream.setLeading(14.5f);
+
+                    contentStream.setFont(fontType, fontSize);
+                    contentStream.setNonStrokingColor(fontColor);
+
+                    contentStream.setLeading(fontSize*1.5f);
 
                     String[] lines = text.split("\n");
                     for (String line : lines) {
@@ -258,7 +275,8 @@ public class TextEditor extends Component implements ActionListener{
 
     public static void main(String[] args) {
         try {
-            TextEditorConfig config = ConfigLoader.loadConfig("src/main/resources/config.yaml");
+            config = new TextEditorConfig();
+            config = ConfigLoader.loadConfig("src/main/resources/config.yaml");
             System.out.println("Default Font Size: " + config.getDefaultFontSize());
         } catch (IOException e) {
             e.printStackTrace();
