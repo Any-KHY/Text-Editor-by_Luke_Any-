@@ -5,6 +5,8 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.awt.Color.DARK_GRAY;
+
 public class TextArea extends JPanel{
     private RSyntaxTextArea textArea;
 
@@ -80,4 +82,14 @@ public class TextArea extends JPanel{
         textArea.setSyntaxEditingStyle(fileType(fileExtension));
         textArea.setCodeFoldingEnabled(true);
     }
+
+    public void resetTextArea(TextEditorConfig config) {
+        if (config != null) {
+            textArea.setFont(new Font(config.getDefaultFont(), Font.PLAIN, config.getDefaultFontSize()));
+            textArea.setForeground(config.getDefaultFontColour());
+        } else {
+            System.out.println("config is null");
+        }
+    }
+
 }

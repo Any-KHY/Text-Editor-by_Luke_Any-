@@ -1,0 +1,7 @@
+# Text Editor Configuration
+
+defaultFont: Segoe Script
+defaultFontSize: 72
+defaultFontColour: [112,128,144] #slategray
+
+
