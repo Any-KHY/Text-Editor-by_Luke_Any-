@@ -80,4 +80,11 @@ public class TextArea extends JPanel{
         textArea.setSyntaxEditingStyle(fileType(fileExtension));
         textArea.setCodeFoldingEnabled(true);
     }
+
+    public void resetTextArea(TextEditorConfig config) {
+        if (config != null) {
+            textArea.setFont(new Font("Helvetica", Font.PLAIN, config.getDefaultFontSize()));
+        }
+    }
+
 }

@@ -3,7 +3,6 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.*;
-import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -28,8 +27,17 @@ public class TextEditor extends Component implements ActionListener{
 
     public static String fileExtension;
 
-    public TextEditor(){
+    private static TextEditorConfig config;
+
+    //public TextEditor(TextEditorConfig config){
+    //    createOuterFrame();
+    //}
+
+    public TextEditor(TextEditorConfig config) {
+        this.config = config;
+        System.out.println("Config: " + config);
         createOuterFrame();
+        textArea.resetTextArea(config);
     }
 
     private void createOuterFrame() {
@@ -69,7 +77,7 @@ public class TextEditor extends Component implements ActionListener{
     }
 
     public void openNewWindow() {
-        TextEditor newEditor = new TextEditor();
+        TextEditor newEditor = new TextEditor(config);
         //newEditor.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
         newEditor.mainFrame.setVisible(true);
     }
@@ -247,8 +255,15 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new TextEditor());
+        try {
+            TextEditorConfig config = ConfigLoader.loadConfig("src/main/resources/config.yaml");
+            System.out.println("Default Font Size: " + config.getDefaultFontSize());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        SwingUtilities.invokeLater(() -> new TextEditor(config));
     }
 
     @Override

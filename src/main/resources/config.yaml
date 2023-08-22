@@ -1,0 +1,7 @@
+# Text Editor Configuration
+
+defaultFontSize: 100
+defaultFontColour: "#FF0000"
+tabWidth: 4
+
+
