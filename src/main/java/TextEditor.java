@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class TextEditor extends Component implements ActionListener{
 
     public static final int WINDOW_WIDTH = 800;
-    public static final int WINDOW_HEGHT = 600;
+    public static final int WINDOW_HEIGHT = 600;
     public static JFrame mainFrame;
     private static TextEditorConfig config;
 
@@ -26,7 +26,7 @@ public class TextEditor extends Component implements ActionListener{
     private TextArea textArea;
     private JMenuBar menuBar;
     private JLabel timeLabel;
-    private Rectangle bounds = new Rectangle(0,0,WINDOW_WIDTH, WINDOW_HEGHT);
+    private Rectangle bounds = new Rectangle(0,0,WINDOW_WIDTH, WINDOW_HEIGHT);
 
     public static String fileExtension;
 
@@ -43,7 +43,7 @@ public class TextEditor extends Component implements ActionListener{
         // Frame set up
         mainFrame = new JFrame();
         mainFrame.setTitle("Text Editor");
-        mainFrame.setSize(WINDOW_WIDTH, WINDOW_HEGHT);
+        mainFrame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         mainFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         // Menu Bar
