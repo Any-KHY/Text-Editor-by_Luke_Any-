@@ -4,7 +4,13 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.*;
-
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -78,6 +84,16 @@ public class TextEditor extends Component implements ActionListener{
         newEditor.mainFrame.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
         //newEditor.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
         newEditor.mainFrame.setVisible(true);
+    }
+    private void openOdtFile(File file) {
+        try (FileInputStream fis = new FileInputStream(file);
+             XWPFDocument document = new XWPFDocument(fis);
+             XWPFWordExtractor extractor = new XWPFWordExtractor(document)) {
+            textArea.setText(extractor.getText());
+            setTitle("Text Editor - " + file.getName());
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error reading the ODT file.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void openFile() {
