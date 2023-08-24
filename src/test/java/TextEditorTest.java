@@ -1,11 +1,14 @@
-import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+
 import org.junit.jupiter.api.Test;
+
 
 import java.io.IOException;
 
 import static org.junit.Assert.*;
 
+
 public class TextEditorTest {
+
 
 //    @Test
 //    void text_default_setting_should_equals_to_config_file() throws IOException {
