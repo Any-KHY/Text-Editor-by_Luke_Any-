@@ -2,6 +2,10 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 import static org.junit.Assert.*;
 
@@ -18,73 +22,51 @@ public class TextEditorTest {
 //    }
 
     // Tests for extracting different type of files
-
     @Test
-    void txt_file_extension_extraction_should_be_txt() throws IOException {
+    public void testNonGuiFeature() throws IOException {
+        // Test code that doesn't require GUI
         String configFilePath = "src/main/resources/config.yaml";
         TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
         String fileName = "test.txt";
         TextEditor textEditor = new TextEditor(config);
         textEditor.extractFileExtension(fileName);
         assertEquals("txt", TextEditor.fileExtension);
-    }
 
-    @Test
-    void csv_file_extension_extraction_should_be_csv() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.csv";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+
+        // Test CSV file extension
+        String csvFileName = "test.csv";
+        TextEditor csvEditor = new TextEditor(config);
+        csvEditor.extractFileExtension(csvFileName);
         assertEquals("csv", TextEditor.fileExtension);
-    }
 
-    @Test
-    void java_file_extension_extraction_should_be_java() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.java";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+        // Test Java file extension
+        String javaFileName = "test.java";
+        TextEditor javaEditor = new TextEditor(config);
+        javaEditor.extractFileExtension(javaFileName);
         assertEquals("java", TextEditor.fileExtension);
-    }
 
-    @Test
-    void cplusplus_file_extension_extraction_should_be_cpp() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.cpp";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+        // Test C++ file extension
+        String cppFileName = "test.cpp";
+        TextEditor cppEditor = new TextEditor(config);
+        cppEditor.extractFileExtension(cppFileName);
         assertEquals("cpp", TextEditor.fileExtension);
-    }
 
-
-    @Test
-    void c_file_extension_extraction_should_be_c() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.c";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+        // Test C file extension
+        String cFileName = "test.c";
+        TextEditor cEditor = new TextEditor(config);
+        cEditor.extractFileExtension(cFileName);
         assertEquals("c", TextEditor.fileExtension);
-    }
-    @Test
-    void python_file_extension_extraction_should_be_py() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.py";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+
+        // Test Python file extension
+        String pythonFileName = "test.py";
+        TextEditor pythonEditor = new TextEditor(config);
+        pythonEditor.extractFileExtension(pythonFileName);
         assertEquals("py", TextEditor.fileExtension);
-    }
-    @Test
-    void php_file_extension_extraction_should_be_php() throws IOException {
-        String configFilePath = "src/main/resources/config.yaml";
-        TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
-        String fileName = "test.php";
-        TextEditor textEditor = new TextEditor(config);
-        textEditor.extractFileExtension(fileName);
+
+        // Test PHP file extension
+        String phpFileName = "test.php";
+        TextEditor phpEditor = new TextEditor(config);
+        phpEditor.extractFileExtension(phpFileName);
         assertEquals("php", TextEditor.fileExtension);
     }
 }
