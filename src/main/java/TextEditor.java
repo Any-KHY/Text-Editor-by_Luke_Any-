@@ -20,10 +20,18 @@ public class TextEditor extends Component implements ActionListener{
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEGHT = 600;
     public static JFrame mainFrame;
+    public static TextArea textArea;
+
     private static TextEditorConfig config;
 
+    static {
+        try {
+            config = ConfigLoader.loadConfig("src/main/resources/config.yaml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    private TextArea textArea;
     private JMenuBar menuBar;
     private JLabel timeLabel;
     private Rectangle bounds = new Rectangle(0,0,WINDOW_WIDTH, WINDOW_HEGHT);
@@ -32,7 +40,6 @@ public class TextEditor extends Component implements ActionListener{
 
     public TextEditor(TextEditorConfig config) {
         this.config = config;
-        System.out.println("Config: " + config);
         createOuterFrame();
         textArea.resetTextArea(config);
     }
@@ -76,7 +83,6 @@ public class TextEditor extends Component implements ActionListener{
     public void openNewWindow() {
         TextEditor newEditor = new TextEditor(config);
         newEditor.mainFrame.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
-        //newEditor.setLocation(mainFrame.getX() + 50, mainFrame.getY() + 50);
         newEditor.mainFrame.setVisible(true);
     }
 
@@ -276,13 +282,6 @@ public class TextEditor extends Component implements ActionListener{
     }
 
     public static void main(String[] args) {
-        try {
-            config = new TextEditorConfig();
-            config = ConfigLoader.loadConfig("src/main/resources/config.yaml");
-            System.out.println("Default Font Size: " + config.getDefaultFontSize());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         SwingUtilities.invokeLater(() -> new TextEditor(config));
     }
 
