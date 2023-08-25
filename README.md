@@ -1,6 +1,14 @@
 # 251-Assignment1-2023-Luke-Any
 Group Member:
+
 13065772 Luke Wakefield
+
+Main commits:
+ - commit e1e40cc
+ - commit cd9369e
+ - commit 617392c
+ - commit 57ac764
+
 22000531 Any KWOK Hoi Yi
 
 
