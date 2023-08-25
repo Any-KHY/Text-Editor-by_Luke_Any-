@@ -7,7 +7,6 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
 public class TextEditor extends Component implements ActionListener{
 
     public static final int WINDOW_WIDTH = 800;
@@ -34,7 +33,7 @@ public class TextEditor extends Component implements ActionListener{
     public TextEditor(TextEditorConfig config) {
         this.config = config;
         createOuterFrame();
-        textArea.resetTextArea(config);
+        textArea.defaulTextArea(config);
     }
 
     private void createOuterFrame() {
@@ -63,7 +62,6 @@ public class TextEditor extends Component implements ActionListener{
 
         mainFrame.setLocationRelativeTo(null); // set location to the center
         mainFrame.setVisible(true);
-
     }
 
     public void updateTimeLabel() {
@@ -82,13 +80,13 @@ public class TextEditor extends Component implements ActionListener{
 
         JFileChooser fileChooser = new JFileChooser();
 
-        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
+        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt","csv");
         fileChooser.addChoosableFileFilter(textFilter);
 
         FileNameExtensionFilter odtFilter = new FileNameExtensionFilter("OpenDocument Text Files" , "odt");
         fileChooser.addChoosableFileFilter(odtFilter);
 
-        FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp");
+        FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp","c");
         fileChooser.addChoosableFileFilter(sourceCodeFilter);
 
         int result = fileChooser.showOpenDialog(mainFrame);
@@ -113,7 +111,7 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
-    public void saveFile() { //only allow save in txt format
+    public void saveFile() { //only allow saving in txt format
 
         JFileChooser fileChooser = new JFileChooser();
 
@@ -132,6 +130,7 @@ public class TextEditor extends Component implements ActionListener{
             }
 
             extractFileExtension(selectedFile.getName());
+
             try {
                 FileWriter fileWriter = new FileWriter(selectedFile);
                 fileWriter.write(textArea.getTextArea().getText());

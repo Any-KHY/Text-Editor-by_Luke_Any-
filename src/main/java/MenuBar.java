@@ -8,78 +8,54 @@ public class MenuBar extends Component {
 
         JMenuBar menuBar = new JMenuBar();
 
-        // File tab
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-        JMenuItem newMenuItem = new JMenuItem("New");
-        JMenuItem openMenuItem = new JMenuItem("Open");
-        JMenuItem saveMenuItem = new JMenuItem("Save");
-        JMenuItem printMenuItem = new JMenuItem("Print");
-        JMenuItem convertToPDF = new JMenuItem("Convert to PDF");
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        String[] fileItems = {"New", "Open", "Save", "Print", "Convert to PDF", "Exit"};
+        addMenuItemsWithListener(fileMenu, fileItems, listener);
 
-        fileMenu.add(newMenuItem);
-        fileMenu.add(openMenuItem);
-        fileMenu.add(saveMenuItem);
-        fileMenu.add(printMenuItem);
-        fileMenu.add(convertToPDF);
-        fileMenu.add(exitMenuItem);
+        JMenu displayMenu = new JMenu("Display Setting");
+        JMenu fontStyleMenu = new JMenu("Font Style");
+        JMenu fontSizeMenu = new JMenu("Font Size");
+        JMenu fontColorMenu = new JMenu("Font Color");
 
-        newMenuItem.addActionListener(listener);
-        openMenuItem.addActionListener(listener);
-        saveMenuItem.addActionListener(listener);
-        printMenuItem.addActionListener(listener);
-        convertToPDF.addActionListener(listener);
-        exitMenuItem.addActionListener(listener);
+        menuBar.add(displayMenu);
+        displayMenu.add(fontStyleMenu);
+        displayMenu.add(fontSizeMenu);
+        displayMenu.add(fontColorMenu);
 
-        // Edit tab
+        String[] fontStyleItems = {"Helvetica", "Calibri", "Times New Roman","Comic Sans MS","Impact"};
+        addMenuItemsWithListener(fontStyleMenu, fontStyleItems, listener);
+
+        String[] fontSizeItems = {"8", "12", "24","36", "72"};
+        addMenuItemsWithListener(fontSizeMenu, fontSizeItems, listener);
+
+        String[] fontColorItems = {"Black", "Red", "Blue", "Dark Gray"};
+        addMenuItemsWithListener(fontColorMenu, fontColorItems, listener);
+
         JMenu editMenu = new JMenu("Edit");
         menuBar.add(editMenu);
+        String[] editItems = {"Select All", "Copy", "Paste", "Cut"};
+        addMenuItemsWithListener(editMenu, editItems, listener);
 
-        JMenuItem selectallMenuItem = new JMenuItem("Select All");
-        JMenuItem copyMenuItem = new JMenuItem("Copy");
-        JMenuItem pasteMenuItem = new JMenuItem("Paste");
-        JMenuItem cutMenuItem = new JMenuItem("Cut");
+        JMenu otherMenu = new JMenu("Other");
+        menuBar.add(otherMenu);
+        String[] functionItems = {"Search", "Time and Date"};
+        addMenuItemsWithListener(otherMenu, functionItems, listener);
 
-        editMenu.add(selectallMenuItem);
-        editMenu.add(copyMenuItem);
-        editMenu.add(pasteMenuItem);
-        editMenu.add(cutMenuItem);
-
-        selectallMenuItem.addActionListener(listener);
-        copyMenuItem.addActionListener(listener);
-        pasteMenuItem.addActionListener(listener);
-        cutMenuItem.addActionListener(listener);
-
-        // Search tab
-        JMenu searchMenu = new JMenu("Search");
-        menuBar.add(searchMenu);
-
-        JMenuItem searchMenuItem = new JMenuItem("Search");
-
-        searchMenu.add(searchMenuItem);
-
-        searchMenuItem.addActionListener(listener);
-
-
-        // View tab
-        JMenu viewMenu = new JMenu("View");
-        menuBar.add(viewMenu);
-
-        JMenuItem timeDateMenuItem = new JMenuItem("Time and Date");
-
-        viewMenu.add(timeDateMenuItem);
-
-        timeDateMenuItem.addActionListener(listener);
-
-        // Help tab
         JMenu helpMenu = new JMenu("Help");
         menuBar.add(helpMenu);
-        JMenuItem aboutMenuItem = new JMenuItem("About");
-        helpMenu.add(aboutMenuItem);
-        aboutMenuItem.addActionListener(listener);
+        String[] helpItems = {"Help", "About"};
+        addMenuItemsWithListener(helpMenu, helpItems, listener);
 
         return menuBar;
+    }
+
+    private static void addMenuItemsWithListener(JMenu menu, String[] itemNames, ActionListener listener) {
+        for (String itemName : itemNames) {
+            JMenuItem item = new JMenuItem(itemName);
+            item.addActionListener(listener);
+            menu.add(item);
+        }
     }
 }

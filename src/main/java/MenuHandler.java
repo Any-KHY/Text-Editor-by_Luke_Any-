@@ -13,14 +13,12 @@ public class MenuHandler implements ActionListener {
         this.textEditor = textEditor;
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
         switch (command) {
             case "New":
                 textEditor.openNewWindow();
-                //textEditor.setTitle("Text Editor");
                 break;
 
             case "Open":
@@ -35,20 +33,28 @@ public class MenuHandler implements ActionListener {
                 textEditor.printText();
                 break;
 
-            case "Exit":
-                exit(0);
-                break;
-
-            case "Search":
-                textEditor.search();
-                break;
-
             case "Convert to PDF":
                 try {
                     PDFConversion.convertToPDF();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                break;
+
+            case "Exit":
+                exit(0);
+                break;
+
+            case "Helvetica","Calibri", "Times New Roman", "Comic Sans MS","Impact":
+                TextEditor.textArea.setFontStyle(command);
+                break;
+
+            case "8","12","24","36","72":
+                TextEditor.textArea.setFontSize(command);
+                break;
+
+            case "Black","Red","Blue","Dark Gray":
+                TextEditor.textArea.setFontColor(command);
                 break;
 
             case "Select All":
@@ -64,10 +70,15 @@ public class MenuHandler implements ActionListener {
                 textEditor.cutText();
                 break;
 
+            case "Search":
+                textEditor.search();
+                break;
+
             case "Time and Date":
                 textEditor.insertTimeAndDate();
                 break;
-            case "About":
+
+                case "About":
                 textEditor.showAbout();
                 break;
 

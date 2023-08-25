@@ -5,30 +5,14 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class TextArea extends JPanel{
     private RSyntaxTextArea textArea;
 
-
     public TextArea(Rectangle bounds){
-
-        // Panel Set up
         panelSetUp(bounds);
-
         textArea = new RSyntaxTextArea();
         textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_NONE);
-        RTextScrollPane scrollPane = new RTextScrollPane(textArea);
-        add(scrollPane);
-    }
-
-
-
-    public TextArea(Rectangle bounds, String fileExtension){
-        // Panel Set up
-        panelSetUp(bounds);
-
-        textArea = new RSyntaxTextArea();
-        textArea.setSyntaxEditingStyle(fileType(fileExtension));
-        textArea.setCodeFoldingEnabled(true);
         RTextScrollPane scrollPane = new RTextScrollPane(textArea);
         add(scrollPane);
     }
@@ -37,6 +21,7 @@ public class TextArea extends JPanel{
         String fileType;
         switch (fileExtension) {
             case "txt", "rtf", "odt":
+            default:
                 fileType = SyntaxConstants.SYNTAX_STYLE_NONE;
                 break;
             case "csv":
@@ -51,14 +36,8 @@ public class TextArea extends JPanel{
             case "cpp":
                 fileType = SyntaxConstants.SYNTAX_STYLE_CPLUSPLUS;
                 break;
-            case "php":
-                fileType = SyntaxConstants.SYNTAX_STYLE_PHP;
-                break;
             case "py":
                 fileType = SyntaxConstants.SYNTAX_STYLE_PYTHON;
-                break;
-            default:
-                fileType = SyntaxConstants.SYNTAX_STYLE_NONE;
                 break;
         }
         return fileType;
@@ -66,8 +45,6 @@ public class TextArea extends JPanel{
 
 
     public void panelSetUp(Rectangle bounds){
-
-        // Panel Set up
         setLayout(new BorderLayout());
         setBounds(bounds);
         setOpaque(false);
@@ -81,13 +58,56 @@ public class TextArea extends JPanel{
         textArea.setCodeFoldingEnabled(true);
     }
 
-    public void resetTextArea(TextEditorConfig config) {
-        if (config != null) {
-            textArea.setFont(new Font(config.getDefaultFont(), Font.PLAIN, config.getDefaultFontSize()));
-            textArea.setForeground(config.getDefaultFontColour());
-        } else {
-            System.out.println("config is null");
+    public void defaulTextArea(TextEditorConfig config) {
+        textArea.setFont(new Font(config.getDefaultFont(), Font.PLAIN, config.getDefaultFontSize()));
+        textArea.setForeground(config.getDefaultFontColour());
+    }
+
+    public void setFontStyle(String fontName) {
+        int currentFontSize = textArea.getFont().getSize();
+        createFont(fontName,currentFontSize);
+    }
+
+    public void createFont(String fontName, int fontSize){
+        switch (fontName) {
+            case "Helvetica":
+                textArea.setFont(new Font("Helvetica", Font.PLAIN, fontSize));
+                break;
+            case "Calibri":
+                textArea.setFont(new Font("Calibri", Font.PLAIN, fontSize));
+                break;
+            case "Times New Roman":
+                textArea.setFont(new Font("Times New Roman", Font.PLAIN, fontSize));
+                break;
+            case "Comic Sans MS":
+                textArea.setFont(new Font("Comic Sans MS", Font.PLAIN, fontSize));
+                break;
+            case "Impact":
+                textArea.setFont(new Font("Impact", Font.PLAIN, fontSize));
+                break;
         }
     }
 
+    public void setFontSize(String fontSizeStr) {
+        int newFontSize = Integer.parseInt(fontSizeStr);
+        Font currentFont = textArea.getFont();
+        textArea.setFont(new Font(currentFont.getFontName(), currentFont.getStyle(), newFontSize));
+    }
+
+    public void setFontColor(String fontColor) {
+        switch (fontColor) {
+            case "Black":
+                textArea.setForeground(Color.BLACK);
+                break;
+            case "Red":
+                textArea.setForeground(Color.RED);
+                break;
+            case "Blue":
+                textArea.setForeground(Color.BLUE);
+                break;
+            case "Dark Gray":
+                textArea.setForeground(Color.DARK_GRAY);
+                break;
+        }
+    }
 }
