@@ -21,14 +21,14 @@ public class TextEditorTest {
     // Tests for extracting different type of files
     @Test
     public void testNonGuiFeature() throws IOException {
-        // Test code that doesn't require GUI
+
+        // Test txt file extension
         String configFilePath = "src/main/resources/config.yaml";
         TextEditorConfig config = ConfigLoader.loadConfig(configFilePath);
         String fileName = "test.txt";
         TextEditor textEditor = new TextEditor(config);
         textEditor.extractFileExtension(fileName);
         assertEquals("txt", TextEditor.fileExtension);
-
 
         // Test CSV file extension
         String csvFileName = "test.csv";
@@ -60,10 +60,17 @@ public class TextEditorTest {
         pythonEditor.extractFileExtension(pythonFileName);
         assertEquals("py", TextEditor.fileExtension);
 
-        // Test PHP file extension
-        String phpFileName = "test.php";
-        TextEditor phpEditor = new TextEditor(config);
-        phpEditor.extractFileExtension(phpFileName);
-        assertEquals("php", TextEditor.fileExtension);
+        // Test rtf file extension
+        String rtfFileName = "test.rtf";
+        TextEditor rtfEditor = new TextEditor(config);
+        cEditor.extractFileExtension(rtfFileName);
+        assertEquals("rtf", TextEditor.fileExtension);
+
+        // Test odt file extension
+        String odtFileName = "test.odt";
+        TextEditor odtEditor = new TextEditor(config);
+        pythonEditor.extractFileExtension(odtFileName);
+        assertEquals("odt", TextEditor.fileExtension);
+
     }
 }
