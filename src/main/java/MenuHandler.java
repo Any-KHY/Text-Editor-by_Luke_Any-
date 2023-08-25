@@ -45,7 +45,7 @@ public class MenuHandler implements ActionListener {
 
             case "Convert to PDF":
                 try {
-                    textEditor.convertToPDF();
+                    PDFConversion.convertToPDF();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
