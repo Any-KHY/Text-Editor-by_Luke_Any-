@@ -3,9 +3,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.io.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class TextEditor extends Component implements ActionListener{
@@ -61,9 +61,8 @@ public class TextEditor extends Component implements ActionListener{
         timeLabel.setHorizontalAlignment(JLabel.CENTER);
         updateTimeLabel(); // Initialize time and date
 
-        // Set location and visibility
         mainFrame.setLocationRelativeTo(null); // set location to the center
-        mainFrame.setVisible(true); // set visible
+        mainFrame.setVisible(true);
 
     }
 
@@ -145,38 +144,6 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
-
-//    public void saveFile() { //only allow save in txt format
-//
-//        JFileChooser fileChooser = new JFileChooser();
-//
-//        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
-//        fileChooser.addChoosableFileFilter(textFilter);
-//        fileChooser.setAcceptAllFileFilterUsed(false);
-//
-//        int result = fileChooser.showSaveDialog(mainFrame);
-//        if (result == JFileChooser.APPROVE_OPTION) {
-//            File selectedFile = fileChooser.getSelectedFile();
-//            String outputPath = selectedFile.getAbsolutePath();
-//
-//            if(!outputPath.endsWith(".txt")){
-//                outputPath += ".txt";
-//                selectedFile = new File(outputPath);
-//            }
-//
-//            extractFileExtension(selectedFile.getName());
-//            try {
-//                FileWriter fileWriter = new FileWriter(selectedFile);
-//                fileWriter.write(textArea.getTextArea().getText());
-//                fileWriter.close();
-//                textArea.resetTextArea(fileExtension);
-//                mainFrame.setTitle("Text Editor - " + selectedFile.getName());
-//            } catch (IOException ex) {
-//                JOptionPane.showMessageDialog(mainFrame, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
-//            }
-//        }
-//    }
-
     public void printText() {
         try {
             textArea.getTextArea().print();
@@ -216,7 +183,9 @@ public class TextEditor extends Component implements ActionListener{
     }
 
     public void insertTimeAndDate() {
-        String dateTime = java.time.LocalDateTime.now().toString();
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss");
+        String dateTime = currentTime.format(formatter);
         textArea.getTextArea().insert(dateTime+"\n" , 0);
     }
 
@@ -226,8 +195,7 @@ public class TextEditor extends Component implements ActionListener{
     }
 
 
-    public void extractFileExtension(String fileName){
-        // extract file type for syntax highlight
+    public void extractFileExtension(String fileName){ // for syntax highlight
         int extensionDotIndex = fileName.lastIndexOf(".");
         if (extensionDotIndex > 0) {
             fileExtension = fileName.substring(extensionDotIndex + 1);
@@ -241,7 +209,5 @@ public class TextEditor extends Component implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     }
-    public void windowClosing(WindowEvent e) {
-        mainFrame.dispose(); // Close only this window
-    }
+
 }
