@@ -189,8 +189,32 @@ public class TextEditor extends Component implements ActionListener{
     }
 
     public void showAbout() {
-        String message = "Text Editor\n\nDeveloped by:\nLuke\nAny";
+        String message = "251-Assignment1-2023-Luke-Any\n\nText Editor\n\nDeveloped by:\nLuke\nAny";
         JOptionPane.showMessageDialog(mainFrame, message, "About", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void showHelp() {
+        String message = "How to Use the Text Editor:\n\n"
+                + "1. File Menu:\n"
+                + "   - New: Create a new text editor window.\n"
+                + "   - Open: Open an existing text file.\n"
+                + "   - Save: Save the file in .txt format.\n"
+                + "   - Print: Print the current document.\n"
+                + "   - Convert to PDF: Convert and save the file as a PDF document.\n"
+                + "   - Exit: Close the current text editor.\n\n"
+                + "2. Display Settings:\n"
+                + "   - Font Style: Change the font style for text.\n"
+                + "   - Font Size: Change the font size for text.\n"
+                + "   - Font Color: Change the font color for text.\n\n"
+                + "3. Edit Menu:\n"
+                + "   - Select All: Select all text in the editor.\n"
+                + "   - Copy: Copy selected text to the clipboard.\n"
+                + "   - Paste: Paste text from the clipboard.\n"
+                + "   - Cut: Cut selected text and copy it to the clipboard.\n\n"
+                + "4. Other Menu:\n"
+                + "   - Search: Search for particular text within the document.\n"
+                + "   - Time and Date: Insert the current date and time at the 1st line.\n\n";
+        JOptionPane.showMessageDialog(mainFrame, message, "Help", JOptionPane.INFORMATION_MESSAGE);
     }
 
 

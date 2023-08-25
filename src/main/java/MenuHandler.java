@@ -78,7 +78,11 @@ public class MenuHandler implements ActionListener {
                 textEditor.insertTimeAndDate();
                 break;
 
-                case "About":
+            case "Help":
+                textEditor.showHelp();
+                break;
+
+            case "About":
                 textEditor.showAbout();
                 break;
 
