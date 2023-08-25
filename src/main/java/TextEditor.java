@@ -114,26 +114,24 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
-    public void saveFile() {
+    public void saveFile() { //only allow save in txt format
 
         JFileChooser fileChooser = new JFileChooser();
 
         FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
         fileChooser.addChoosableFileFilter(textFilter);
+        fileChooser.setAcceptAllFileFilterUsed(false);
 
-        FileNameExtensionFilter odtFilter = new FileNameExtensionFilter("OpenDocument Text Files" , "odt");
-        fileChooser.addChoosableFileFilter(odtFilter);
-
-        FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp");
-        fileChooser.addChoosableFileFilter(sourceCodeFilter);
-
-        int result = fileChooser.showOpenDialog(mainFrame);
+        int result = fileChooser.showSaveDialog(mainFrame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             String outputPath = selectedFile.getAbsolutePath();
-//            if(!selectedFile.getName().endsWith(".txt")){
-//                selectedFile.renameTo(new File(outputPath + "txt"));
-//            }
+
+            if(!outputPath.endsWith(".txt")){
+                outputPath += ".txt";
+                selectedFile = new File(outputPath);
+            }
+
             extractFileExtension(selectedFile.getName());
             try {
                 FileWriter fileWriter = new FileWriter(selectedFile);
@@ -147,70 +145,32 @@ public class TextEditor extends Component implements ActionListener{
         }
     }
 
-//    public void convertToPDF() throws IOException {
+
+//    public void saveFile() { //only allow save in txt format
 //
 //        JFileChooser fileChooser = new JFileChooser();
 //
-//        FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Files", "pdf");
-//        fileChooser.setFileFilter(pdfFilter);
+//        FileNameExtensionFilter textFilter = new FileNameExtensionFilter("Text Files", "txt");
+//        fileChooser.addChoosableFileFilter(textFilter);
+//        fileChooser.setAcceptAllFileFilterUsed(false);
 //
-//        int result = fileChooser.showOpenDialog(mainFrame);
+//        int result = fileChooser.showSaveDialog(mainFrame);
 //        if (result == JFileChooser.APPROVE_OPTION) {
 //            File selectedFile = fileChooser.getSelectedFile();
 //            String outputPath = selectedFile.getAbsolutePath();
+//
+//            if(!outputPath.endsWith(".txt")){
+//                outputPath += ".txt";
+//                selectedFile = new File(outputPath);
+//            }
+//
+//            extractFileExtension(selectedFile.getName());
 //            try {
-//
-//                PDDocument document = new PDDocument();
-//                PDPage page = new PDPage();
-//                document.addPage(page);
-//
-//                try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-//
-//                    String text = textArea.getTextArea().getText();
-//                    int fontSize = textArea.getTextArea().getFont().getSize();
-//                    String fontFamily = textArea.getTextArea().getFont().getFamily();
-//                    //PDFont fontType = PDType1Font.HELVETICA;
-//                    PDFont fontType;
-//                    Color fontColor = textArea.getTextArea().getForeground();
-//                    if (fontFamily.equalsIgnoreCase("Arial")) {
-//                        fontType = PDType1Font.HELVETICA;
-//                    } else if (fontFamily.equalsIgnoreCase("Times New Roman")) {
-//                        fontType = PDType1Font.TIMES_ROMAN;
-//                    } else {
-//                        fontType = PDType1Font.HELVETICA; //default
-//                    }
-//
-//                    PDRectangle mediaBox = page.getMediaBox();
-//
-//                    float margin;
-//
-//                    if(fontSize < 50/2 ) {
-//                        margin = 50;
-//                    } else {
-//                        margin = fontSize/2 + 30;
-//                    }
-//
-//                    float startY = mediaBox.getHeight() - margin;
-//                    float startX = margin;
-//
-//                    contentStream.beginText();
-//                    contentStream.newLineAtOffset(startX, startY);
-//
-//                    contentStream.setFont(fontType, fontSize);
-//                    contentStream.setNonStrokingColor(fontColor);
-//
-//                    contentStream.setLeading(fontSize*1.5f);
-//
-//                    String[] lines = text.split("\n");
-//                    for (String line : lines) {
-//                        contentStream.showText(line);
-//                        contentStream.newLine();
-//                    }
-//                    contentStream.endText();
-//                }
-//
-//                document.save(outputPath);
-//                JOptionPane.showMessageDialog(mainFrame, "Text converted to PDF.", "Success", JOptionPane.INFORMATION_MESSAGE);
+//                FileWriter fileWriter = new FileWriter(selectedFile);
+//                fileWriter.write(textArea.getTextArea().getText());
+//                fileWriter.close();
+//                textArea.resetTextArea(fileExtension);
+//                mainFrame.setTitle("Text Editor - " + selectedFile.getName());
 //            } catch (IOException ex) {
 //                JOptionPane.showMessageDialog(mainFrame, "Error saving the file.", "Error", JOptionPane.ERROR_MESSAGE);
 //            }
@@ -285,4 +245,3 @@ public class TextEditor extends Component implements ActionListener{
         mainFrame.dispose(); // Close only this window
     }
 }
-

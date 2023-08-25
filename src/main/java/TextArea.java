@@ -5,8 +5,6 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import javax.swing.*;
 import java.awt.*;
 
-import static java.awt.Color.DARK_GRAY;
-
 public class TextArea extends JPanel{
     private RSyntaxTextArea textArea;
 

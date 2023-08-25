@@ -1,7 +1,7 @@
 # Text Editor Configuration
 
 defaultFont: Arial
-defaultFontSize: 18
+defaultFontSize: 12
 defaultFontColour: [112,128,144] #slategray
 
 
