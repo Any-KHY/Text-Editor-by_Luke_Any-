@@ -27,18 +27,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Install Chrome WebDriver
-      run: |
-          CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          curl -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
-          unzip /tmp/chromedriver.zip -d /tmp
-          sudo mv /tmp/chromedriver /usr/local/bin
-          sudo chmod +x /usr/local/bin/chromedriver
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
     - name: Run Tests with Headless Chrome
-      run: |
-          mvn test -Dbrowser=chrome-headless
+      run: mvn test -Djava.awt.headless=true
+
 
