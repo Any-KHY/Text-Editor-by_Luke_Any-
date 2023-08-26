@@ -1,5 +1,6 @@
 TextArea.class
 TextEditorConfig.class
+PDFConversion.class
 MenuBar.class
 ConfigLoader.class
 MenuHandler.class

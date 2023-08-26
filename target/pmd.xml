@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.55.0" timestamp="2023-08-27T00:19:03.214">
+<file name="C:\Users\any31\OneDrive\Massey\159251 Software Engineering Design and Construction\Assignmnet\230827 159251 Assignment 1\A1\src\main\java\MenuHandler.java">
+<violation beginline="8" endline="91" begincolumn="8" endcolumn="1" rule="StdCyclomaticComplexity" ruleset="Design" class="MenuHandler" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#stdcyclomaticcomplexity" priority="3">
+The class 'MenuHandler' has a Standard Cyclomatic Complexity of 10 (Highest = 19).
+</violation>
+<violation beginline="17" endline="90" begincolumn="12" endcolumn="5" rule="StdCyclomaticComplexity" ruleset="Design" class="MenuHandler" method="actionPerformed" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#stdcyclomaticcomplexity" priority="3">
+The method 'actionPerformed' has a Standard Cyclomatic Complexity of 19.
+</violation>
+<violation beginline="17" endline="90" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Design" class="MenuHandler" method="actionPerformed" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'actionPerformed(ActionEvent)' has a cyclomatic complexity of 31.
+</violation>
+<violation beginline="49" endline="49" begincolumn="17" endcolumn="57" rule="LawOfDemeter" ruleset="Design" class="MenuHandler" method="actionPerformed" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="53" endline="53" begincolumn="17" endcolumn="56" rule="LawOfDemeter" ruleset="Design" class="MenuHandler" method="actionPerformed" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="57" endline="57" begincolumn="17" endcolumn="57" rule="LawOfDemeter" ruleset="Design" class="MenuHandler" method="actionPerformed" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+</file>
+<file name="C:\Users\any31\OneDrive\Massey\159251 Software Engineering Design and Construction\Assignmnet\230827 159251 Assignment 1\A1\src\main\java\PDFConversion.java">
+<violation beginline="24" endline="24" begincolumn="33" endcolumn="62" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="26" endline="26" begincolumn="18" endcolumn="70" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="26" endline="26" begincolumn="18" endcolumn="70" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="26" endline="26" begincolumn="18" endcolumn="70" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="36" endline="36" begincolumn="32" endcolumn="84" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="36" endline="36" begincolumn="32" endcolumn="84" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="36" endline="36" begincolumn="32" endcolumn="84" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="37" endline="37" begincolumn="35" endcolumn="83" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="37" endline="37" begincolumn="35" endcolumn="83" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="41" endline="41" begincolumn="27" endcolumn="46" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="47" endline="47" begincolumn="34" endcolumn="88" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="47" endline="47" begincolumn="34" endcolumn="88" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="47" endline="47" begincolumn="34" endcolumn="88" rule="LawOfDemeter" ruleset="Design" class="PDFConversion" method="convertToPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+</file>
+<file name="C:\Users\any31\OneDrive\Massey\159251 Software Engineering Design and Construction\Assignmnet\230827 159251 Assignment 1\A1\src\main\java\TextArea.java">
+<violation beginline="67" endline="67" begincolumn="31" endcolumn="58" rule="LawOfDemeter" ruleset="Design" class="TextArea" method="setFontStyle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="94" endline="94" begincolumn="35" endcolumn="59" rule="LawOfDemeter" ruleset="Design" class="TextArea" method="setFontSize" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="94" endline="94" begincolumn="62" endcolumn="83" rule="LawOfDemeter" ruleset="Design" class="TextArea" method="setFontSize" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+</file>
+<file name="C:\Users\any31\OneDrive\Massey\159251 Software Engineering Design and Construction\Assignmnet\230827 159251 Assignment 1\A1\src\main\java\TextEditor.java">
+<violation beginline="10" endline="236" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Design" class="TextEditor" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="56" endline="56" begincolumn="9" endcolumn="29" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="createOuterFrame" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="69" endline="69" begincolumn="36" endcolumn="49" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="updateTimeLabel" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="75" endline="75" begincolumn="9" endcolumn="85" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openNewWindow" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="76" endline="76" begincolumn="9" endcolumn="44" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openNewWindow" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (static property access)
+</violation>
+<violation beginline="95" endline="95" begincolumn="34" endcolumn="55" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="101" endline="101" begincolumn="17" endcolumn="50" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="104" endline="104" begincolumn="21" endcolumn="62" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="106" endline="106" begincolumn="55" endcolumn="76" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="openFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="125" endline="125" begincolumn="33" endcolumn="62" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="saveFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="127" endline="127" begincolumn="17" endcolumn="43" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="saveFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="136" endline="136" begincolumn="34" endcolumn="65" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="saveFile" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="148" endline="148" begincolumn="13" endcolumn="42" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="printText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="156" endline="156" begincolumn="36" endcolumn="55" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="157" endline="157" begincolumn="27" endcolumn="58" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="158" endline="158" begincolumn="25" endcolumn="48" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="160" endline="160" begincolumn="17" endcolumn="62" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="161" endline="161" begincolumn="17" endcolumn="81" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="169" endline="169" begincolumn="9" endcolumn="42" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="selectText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="173" endline="173" begincolumn="9" endcolumn="37" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="copyText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="177" endline="177" begincolumn="9" endcolumn="38" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="pasteText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="181" endline="181" begincolumn="9" endcolumn="36" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="cutText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="187" endline="187" begincolumn="27" endcolumn="55" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="insertTimeAndDate" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="188" endline="188" begincolumn="9" endcolumn="56" rule="LawOfDemeter" ruleset="Design" class="TextEditor" method="insertTimeAndDate" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+</file>
+<configerror rule="LoosePackageCoupling" msg="No packages or classes specified"/>
+</pmd>

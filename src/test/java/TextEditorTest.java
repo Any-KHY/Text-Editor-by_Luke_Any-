@@ -3,13 +3,10 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
-
-
 public class TextEditorTest {
 
-
     @Test
-    void text_default_setting_should_equals_to_config_file() throws IOException {
+    public void text_default_setting_should_equals_to_config_file() throws IOException {
         // load config file directly from the path and check if it's equals to the setting of text area
         String validConfigFilePath = "src/main/resources/config.yaml";
         TextEditorConfig config = ConfigLoader.loadConfig(validConfigFilePath);
@@ -20,7 +17,7 @@ public class TextEditorTest {
 
     // Tests for extracting different type of files
     @Test
-    public void testNonGuiFeature() throws IOException {
+    public void testFileExtensionCorrectlyExtract() throws IOException {
 
         // Test txt file extension
         String configFilePath = "src/main/resources/config.yaml";
@@ -73,4 +70,6 @@ public class TextEditorTest {
         assertEquals("odt", TextEditor.fileExtension);
 
     }
+
+
 }
