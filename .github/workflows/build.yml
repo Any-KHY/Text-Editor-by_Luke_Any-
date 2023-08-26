@@ -30,7 +30,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Run Tests with Headless Chrome
-      run: mvn test -Djava.awt.headless=true
+    - name: Set up Docker
+      uses: actions/setup-docker@v2
+
+    - name: Build Docker Image
+      run: docker build -t my-selenium-image .
+
+    - name: Run Selenium Tests
+      run: |
+        docker run --rm -e DISPLAY=:99 my-selenium-image mvn clean test
 
 
