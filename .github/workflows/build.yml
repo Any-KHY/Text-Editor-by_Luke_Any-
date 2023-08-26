@@ -26,14 +26,19 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
+
+    - name: Install xvfb
+      run: sudo apt-get install xvfb
+
+    - name: Start xvfb
+      run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
+    - name: Set DISPLAY environment variable
+      run: echo "export DISPLAY=:99" >> $GITHUB_ENV
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Test with xvfb
-      uses: run-with-xvfb
-      with:
-        run: npm test
-      env:
-        CI: true
+
     - name: Run test
       run: mvn clean test
 
