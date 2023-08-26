@@ -27,18 +27,18 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Install xvfb
-      run: sudo apt-get install xvfb
-
-    - name: Start xvfb
-      run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-
-    - name: Set DISPLAY environment variable
-      run: echo "export DISPLAY=:99" >> $GITHUB_ENV
+    - name: Install Chrome WebDriver
+      run: |
+          CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          curl -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
+          unzip /tmp/chromedriver.zip -d /tmp
+          sudo mv /tmp/chromedriver /usr/local/bin
+          sudo chmod +x /usr/local/bin/chromedriver
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Run test
-      run: mvn clean test
+    - name: Run Tests with Headless Chrome
+      run: |
+          mvn test -Dbrowser=chrome-headless
 
