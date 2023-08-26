@@ -31,15 +31,6 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run Selenium Tests
-      run: |
-        try {
-            mvn clean test
-        } catch (Exception e) {
-          if [[ "$e" == *"java.awt.HeadlessException"* ]]; then
-          echo "Ignoring HeadlessException"
-          else
-          throw e
-          fi
-        }
+      run: mvn clean test
 
 
