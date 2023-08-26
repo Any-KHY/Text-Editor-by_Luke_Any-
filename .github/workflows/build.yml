@@ -28,10 +28,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Run Tests with Docker
-      run: |
-        docker build -t my-java-app .
-        docker run --rm -e DISPLAY=:99 my-java-app mvn clean install
-        env:
-        DISPLAY: ":99"
+    - name: Run headless test
+      uses: GabrielBB/xvfb-action@v1
+      with:
+          run: mvn clean test
 
