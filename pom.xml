@@ -87,7 +87,7 @@
                     <version>3.0.0</version>
                     <configuration>
                         <excludes>
-                            <exclude>src/test/java/TextEditorGUITest.java</exclude>
+                            <exclude>TextEditorGUITest.java</exclude>
                         </excludes>
                     </configuration>
                 </plugin>
