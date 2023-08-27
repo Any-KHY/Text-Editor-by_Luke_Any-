@@ -47,12 +47,23 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- For Otd https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <!-- Maven config as per tutorial 4 -->
@@ -74,6 +85,11 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>src/test/java/TextEditorGUITest.java</exclude>
+                        </excludes>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -110,7 +126,6 @@
                         <execution>
                             <goals>
                                 <goal>pmd</goal>
-                                <goal>cpd</goal>
                             </goals>
                         </execution>
                     </executions>

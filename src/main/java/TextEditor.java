@@ -1,13 +1,15 @@
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TextEditor extends Component implements ActionListener{
+public class TextEditor extends Component{
 
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 600;
@@ -88,28 +90,47 @@ public class TextEditor extends Component implements ActionListener{
 
         FileNameExtensionFilter sourceCodeFilter = new FileNameExtensionFilter("Source Code Files", "java","py","cpp","c");
         fileChooser.addChoosableFileFilter(sourceCodeFilter);
+        fileChooser.setAcceptAllFileFilterUsed(false);
 
         int result = fileChooser.showOpenDialog(mainFrame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             extractFileExtension(selectedFile.getName());
+            if (fileExtension == "odt"){
+                openOdtFile(selectedFile);
+            } else {
 
-            try {
-                FileReader fileReader = new FileReader(selectedFile);
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                textArea.resetTextArea(fileExtension);
-                textArea.getTextArea().setText("");
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    textArea.getTextArea().append(line + "\n");
+                try {
+                    FileReader fileReader = new FileReader(selectedFile);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    textArea.resetTextArea(fileExtension);
+                    textArea.getTextArea().setText("");
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        textArea.getTextArea().append(line + "\n");
+                    }
+                    mainFrame.setTitle("Text Editor - " + selectedFile.getName());
+                    bufferedReader.close();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Error reading the file.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                mainFrame.setTitle("Text Editor - " + selectedFile.getName());
-                bufferedReader.close();
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(mainFrame, "Error reading the file.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
+    private void openOdtFile(File file) {
+        try (
+             FileInputStream fis = new FileInputStream(file);
+             XWPFDocument document = new XWPFDocument(fis);
+             XWPFWordExtractor extractor = new XWPFWordExtractor(document)) {
+            textArea.getTextArea().setText(extractor.getText());
+            mainFrame.setTitle("Text Editor - " + file.getName());
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error reading the ODT file.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
 
     public void saveFile() { //only allow saving in txt format
 
@@ -229,8 +250,5 @@ public class TextEditor extends Component implements ActionListener{
         SwingUtilities.invokeLater(() -> new TextEditor(config));
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-    }
 
 }

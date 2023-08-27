@@ -1,34 +1,10 @@
-import org.junit.Rule;
-import org.junit.internal.AssumptionViolatedException;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.TestRule;
-import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
 
-import java.awt.*;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
-public class TextEditorTest {
+public class TextEditorGUITest {
 
-    public class HeadlessIgnoredRule implements TestRule {
-        @Override
-        public Statement apply(Statement base, Description description) {
-            return new Statement() {
-                @Override
-                public void evaluate() throws Throwable {
-                    try {
-                        base.evaluate();
-                    } catch (HeadlessException e) {
-                        throw new AssumptionViolatedException("Test ignored in headless Exception");
-                    }
-                }
-            };
-        }
-    }
-
-    @Rule
-    public HeadlessIgnoredRule headlessIgnoredRule = new HeadlessIgnoredRule();
 
     @Test
     public void text_default_setting_should_equals_to_config_file() throws IOException {

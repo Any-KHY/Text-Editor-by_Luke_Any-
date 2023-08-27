@@ -46,7 +46,7 @@ This is a simple Java text editor with a graphical user interface (GUI) that all
 
 2. **Open**
    - Click on "Open" option in the File menu to browse and open an existing text file.
-   - Supported file formats: `.txt`, `.odt`, `.java`, `.py`, `.cpp`,`.c`.
+   - Supported file formats: `.txt`, `.csv`, `.odt`, `.java`, `.py`, `.cpp`,`.c`.
 
 3. **Save**
    - Click on "Save" option in the File menu to save the file in `.txt` format.

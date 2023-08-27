@@ -1,0 +1,89 @@
+<METRICS profile="MyMetrics" timestamp="¶g¤é, 27 8¤ë 2023 15:09:42 NZST">
+	<METRIC category="Method" name="Cyclomatic complexity" abbreviation="v(G)">
+		<VALUE measured="ConfigLoader.loadConfig(String)" value="1.0"/>
+		<VALUE measured="MenuBar.addMenuItemsWithListener(JMenu, String[], ActionListener)" value="2.0"/>
+		<VALUE measured="MenuBar.createMenuBar(ActionListener)" value="1.0"/>
+		<VALUE measured="MenuHandler.MenuHandler(TextEditor)" value="1.0"/>
+		<VALUE measured="MenuHandler.actionPerformed(ActionEvent)" value="19.0"/>
+		<VALUE measured="PDFConversion.contentStreamSetting(PDPageContentStream, PDFont, int, Color, float, float)" value="1.0"/>
+		<VALUE measured="PDFConversion.convertToPDF()" value="6.0"/>
+		<VALUE measured="TextArea.TextArea(Rectangle)" value="1.0"/>
+		<VALUE measured="TextArea.createFont(String, int)" value="6.0"/>
+		<VALUE measured="TextArea.defaulTextArea(TextEditorConfig)" value="1.0"/>
+		<VALUE measured="TextArea.fileType(String)" value="7.0"/>
+		<VALUE measured="TextArea.getTextArea()" value="1.0"/>
+		<VALUE measured="TextArea.panelSetUp(Rectangle)" value="1.0"/>
+		<VALUE measured="TextArea.resetTextArea(String)" value="1.0"/>
+		<VALUE measured="TextArea.setFontColor(String)" value="5.0"/>
+		<VALUE measured="TextArea.setFontSize(String)" value="1.0"/>
+		<VALUE measured="TextArea.setFontStyle(String)" value="1.0"/>
+		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="1.0"/>
+		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="1.0"/>
+		<VALUE measured="TextEditor.copyText()" value="1.0"/>
+		<VALUE measured="TextEditor.createOuterFrame()" value="1.0"/>
+		<VALUE measured="TextEditor.cutText()" value="1.0"/>
+		<VALUE measured="TextEditor.extractFileExtension(String)" value="2.0"/>
+		<VALUE measured="TextEditor.insertTimeAndDate()" value="1.0"/>
+		<VALUE measured="TextEditor.main(String[])" value="1.0"/>
+		<VALUE measured="TextEditor.openFile()" value="5.0"/>
+		<VALUE measured="TextEditor.openNewWindow()" value="1.0"/>
+		<VALUE measured="TextEditor.openOdtFile(File)" value="2.0"/>
+		<VALUE measured="TextEditor.pasteText()" value="1.0"/>
+		<VALUE measured="TextEditor.printText()" value="2.0"/>
+		<VALUE measured="TextEditor.saveFile()" value="4.0"/>
+		<VALUE measured="TextEditor.search()" value="4.0"/>
+		<VALUE measured="TextEditor.selectText()" value="1.0"/>
+		<VALUE measured="TextEditor.showAbout()" value="1.0"/>
+		<VALUE measured="TextEditor.showHelp()" value="1.0"/>
+		<VALUE measured="TextEditor.updateTimeLabel()" value="1.0"/>
+		<VALUE measured="TextEditorConfig.getDefaultFont()" value="1.0"/>
+		<VALUE measured="TextEditorConfig.getDefaultFontColour()" value="1.0"/>
+		<VALUE measured="TextEditorConfig.getDefaultFontSize()" value="1.0"/>
+		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="1.0"/>
+		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="1.0"/>
+		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="1.0"/>
+		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Coupling between objects" abbreviation="CBO">
+		<VALUE measured="ConfigLoader" value="3.0"/>
+		<VALUE measured="MenuBar" value="1.0"/>
+		<VALUE measured="MenuHandler" value="3.0"/>
+		<VALUE measured="PDFConversion" value="3.0"/>
+		<VALUE measured="TextArea" value="4.0"/>
+		<VALUE measured="TextEditor" value="7.0"/>
+		<VALUE measured="TextEditorConfig" value="4.0"/>
+		<VALUE measured="TextEditorTest" value="3.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Lines of code" abbreviation="LOC">
+		<VALUE measured="ConfigLoader" value="8.0"/>
+		<VALUE measured="MenuBar" value="43.0"/>
+		<VALUE measured="MenuHandler" value="68.0"/>
+		<VALUE measured="PDFConversion" value="61.0"/>
+		<VALUE measured="TextArea" value="95.0"/>
+		<VALUE measured="TextEditor" value="200.0"/>
+		<VALUE measured="TextEditorConfig" value="23.0"/>
+		<VALUE measured="TextEditorTest" value="59.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Weighted method complexity" abbreviation="WMC">
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="MenuBar" value="3.0"/>
+		<VALUE measured="MenuHandler" value="19.0"/>
+		<VALUE measured="PDFConversion" value="6.0"/>
+		<VALUE measured="TextArea" value="25.0"/>
+		<VALUE measured="TextEditor" value="27.0"/>
+		<VALUE measured="TextEditorConfig" value="6.0"/>
+		<VALUE measured="TextEditorTest" value="1.0"/>
+	</METRIC>
+	<METRIC category="Module" name="Comment ratio" abbreviation="COM_RAT">
+		<VALUE measured="Assignment1-2023-Luke-Any" value="0.046511627906976744"/>
+	</METRIC>
+	<METRIC category="Project" name="Number of classes" abbreviation="C">
+		<VALUE measured="project" value="8.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Number of methods" abbreviation="METH">
+		<VALUE measured="project" value="43.0"/>
+	</METRIC>
+	<METRIC category="Project" name="Number of packages" abbreviation="P">
+		<VALUE measured="project" value="1.0"/>
+	</METRIC>
+</METRICS>

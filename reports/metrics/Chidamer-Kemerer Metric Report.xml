@@ -1,0 +1,62 @@
+<METRICS profile="Chidamber-Kemerer metrics" timestamp="¶g¤é, 27 8¤ë 2023 15:02:02 NZST">
+	<METRIC category="Class" name="Coupling between objects" abbreviation="CBO">
+		<VALUE measured="ConfigLoader" value="3.0"/>
+		<VALUE measured="MenuBar" value="1.0"/>
+		<VALUE measured="MenuHandler" value="3.0"/>
+		<VALUE measured="PDFConversion" value="3.0"/>
+		<VALUE measured="TextArea" value="4.0"/>
+		<VALUE measured="TextEditor" value="7.0"/>
+		<VALUE measured="TextEditorConfig" value="4.0"/>
+		<VALUE measured="TextEditorTest" value="3.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Depth of inheritance tree" abbreviation="DIT">
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="MenuBar" value="2.0"/>
+		<VALUE measured="MenuHandler" value="1.0"/>
+		<VALUE measured="PDFConversion" value="1.0"/>
+		<VALUE measured="TextArea" value="5.0"/>
+		<VALUE measured="TextEditor" value="2.0"/>
+		<VALUE measured="TextEditorConfig" value="1.0"/>
+		<VALUE measured="TextEditorTest" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Lack of Cohesion of Methods" abbreviation="LCOM">
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="MenuBar" value="1.0"/>
+		<VALUE measured="MenuHandler" value="1.0"/>
+		<VALUE measured="PDFConversion" value="1.0"/>
+		<VALUE measured="TextArea" value="2.0"/>
+		<VALUE measured="TextEditor" value="2.0"/>
+		<VALUE measured="TextEditorConfig" value="3.0"/>
+		<VALUE measured="TextEditorTest" value="1.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Number of children" abbreviation="NOC">
+		<VALUE measured="ConfigLoader" value="0.0"/>
+		<VALUE measured="MenuBar" value="0.0"/>
+		<VALUE measured="MenuHandler" value="0.0"/>
+		<VALUE measured="PDFConversion" value="0.0"/>
+		<VALUE measured="TextArea" value="0.0"/>
+		<VALUE measured="TextEditor" value="0.0"/>
+		<VALUE measured="TextEditorConfig" value="0.0"/>
+		<VALUE measured="TextEditorTest" value="0.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Response for class" abbreviation="RFC">
+		<VALUE measured="ConfigLoader" value="4.0"/>
+		<VALUE measured="MenuBar" value="8.0"/>
+		<VALUE measured="MenuHandler" value="21.0"/>
+		<VALUE measured="PDFConversion" value="34.0"/>
+		<VALUE measured="TextArea" value="30.0"/>
+		<VALUE measured="TextEditor" value="90.0"/>
+		<VALUE measured="TextEditorConfig" value="6.0"/>
+		<VALUE measured="TextEditorTest" value="5.0"/>
+	</METRIC>
+	<METRIC category="Class" name="Weighted method complexity" abbreviation="WMC">
+		<VALUE measured="ConfigLoader" value="1.0"/>
+		<VALUE measured="MenuBar" value="3.0"/>
+		<VALUE measured="MenuHandler" value="19.0"/>
+		<VALUE measured="PDFConversion" value="6.0"/>
+		<VALUE measured="TextArea" value="25.0"/>
+		<VALUE measured="TextEditor" value="27.0"/>
+		<VALUE measured="TextEditorConfig" value="6.0"/>
+		<VALUE measured="TextEditorTest" value="1.0"/>
+	</METRIC>
+</METRICS>
