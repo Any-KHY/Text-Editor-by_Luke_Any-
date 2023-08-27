@@ -1,4 +1,4 @@
-<METRICS profile="Lines of code metrics" timestamp="週日, 27 8月 2023 15:05:57 NZST">
+<METRICS profile="Lines of code metrics" timestamp="週日, 27 8月 2023 16:50:05 NZST">
 	<METRIC category="Method" name="Comment lines of code" abbreviation="CLOC">
 		<VALUE measured="ConfigLoader.loadConfig(String)" value="0.0"/>
 		<VALUE measured="MenuBar.addMenuItemsWithListener(JMenu, String[], ActionListener)" value="0.0"/>
@@ -18,7 +18,6 @@
 		<VALUE measured="TextArea.setFontSize(String)" value="0.0"/>
 		<VALUE measured="TextArea.setFontStyle(String)" value="0.0"/>
 		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="0.0"/>
-		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="0.0"/>
 		<VALUE measured="TextEditor.copyText()" value="0.0"/>
 		<VALUE measured="TextEditor.createOuterFrame()" value="6.0"/>
 		<VALUE measured="TextEditor.cutText()" value="0.0"/>
@@ -42,7 +41,8 @@
 		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="0.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="0.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="0.0"/>
-		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="9.0"/>
+		<VALUE measured="TextEditorGUITest.testFileExtensionCorrectlyExtract()" value="9.0"/>
+		<VALUE measured="TextEditorGUITest.text_default_setting_should_equals_to_config_file()" value="1.0"/>
 	</METRIC>
 	<METRIC category="Method" name="Javadoc lines of code" abbreviation="JLOC">
 		<VALUE measured="ConfigLoader.loadConfig(String)" value="0.0"/>
@@ -63,7 +63,6 @@
 		<VALUE measured="TextArea.setFontSize(String)" value="0.0"/>
 		<VALUE measured="TextArea.setFontStyle(String)" value="0.0"/>
 		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="0.0"/>
-		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="0.0"/>
 		<VALUE measured="TextEditor.copyText()" value="0.0"/>
 		<VALUE measured="TextEditor.createOuterFrame()" value="0.0"/>
 		<VALUE measured="TextEditor.cutText()" value="0.0"/>
@@ -87,7 +86,8 @@
 		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="0.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="0.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="0.0"/>
-		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="0.0"/>
+		<VALUE measured="TextEditorGUITest.testFileExtensionCorrectlyExtract()" value="0.0"/>
+		<VALUE measured="TextEditorGUITest.text_default_setting_should_equals_to_config_file()" value="0.0"/>
 	</METRIC>
 	<METRIC category="Method" name="Lines of code" abbreviation="LOC">
 		<VALUE measured="ConfigLoader.loadConfig(String)" value="6.0"/>
@@ -108,14 +108,13 @@
 		<VALUE measured="TextArea.setFontSize(String)" value="5.0"/>
 		<VALUE measured="TextArea.setFontStyle(String)" value="4.0"/>
 		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="5.0"/>
-		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="3.0"/>
 		<VALUE measured="TextEditor.copyText()" value="3.0"/>
 		<VALUE measured="TextEditor.createOuterFrame()" value="22.0"/>
 		<VALUE measured="TextEditor.cutText()" value="3.0"/>
 		<VALUE measured="TextEditor.extractFileExtension(String)" value="6.0"/>
 		<VALUE measured="TextEditor.insertTimeAndDate()" value="6.0"/>
 		<VALUE measured="TextEditor.main(String[])" value="3.0"/>
-		<VALUE measured="TextEditor.openFile()" value="32.0"/>
+		<VALUE measured="TextEditor.openFile()" value="33.0"/>
 		<VALUE measured="TextEditor.openNewWindow()" value="5.0"/>
 		<VALUE measured="TextEditor.openOdtFile(File)" value="11.0"/>
 		<VALUE measured="TextEditor.pasteText()" value="3.0"/>
@@ -132,7 +131,8 @@
 		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="3.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="3.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="3.0"/>
-		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="46.0"/>
+		<VALUE measured="TextEditorGUITest.testFileExtensionCorrectlyExtract()" value="46.0"/>
+		<VALUE measured="TextEditorGUITest.text_default_setting_should_equals_to_config_file()" value="9.0"/>
 	</METRIC>
 	<METRIC category="Method" name="Non-comment lines of code" abbreviation="NCLOC">
 		<VALUE measured="ConfigLoader.loadConfig(String)" value="6.0"/>
@@ -153,14 +153,13 @@
 		<VALUE measured="TextArea.setFontSize(String)" value="5.0"/>
 		<VALUE measured="TextArea.setFontStyle(String)" value="4.0"/>
 		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="5.0"/>
-		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="3.0"/>
 		<VALUE measured="TextEditor.copyText()" value="3.0"/>
 		<VALUE measured="TextEditor.createOuterFrame()" value="18.0"/>
 		<VALUE measured="TextEditor.cutText()" value="3.0"/>
 		<VALUE measured="TextEditor.extractFileExtension(String)" value="6.0"/>
 		<VALUE measured="TextEditor.insertTimeAndDate()" value="6.0"/>
 		<VALUE measured="TextEditor.main(String[])" value="3.0"/>
-		<VALUE measured="TextEditor.openFile()" value="32.0"/>
+		<VALUE measured="TextEditor.openFile()" value="33.0"/>
 		<VALUE measured="TextEditor.openNewWindow()" value="5.0"/>
 		<VALUE measured="TextEditor.openOdtFile(File)" value="11.0"/>
 		<VALUE measured="TextEditor.pasteText()" value="3.0"/>
@@ -177,7 +176,8 @@
 		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="3.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="3.0"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="3.0"/>
-		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="37.0"/>
+		<VALUE measured="TextEditorGUITest.testFileExtensionCorrectlyExtract()" value="37.0"/>
+		<VALUE measured="TextEditorGUITest.text_default_setting_should_equals_to_config_file()" value="8.0"/>
 	</METRIC>
 	<METRIC category="Method" name="Relative lines of code" abbreviation="RLOC">
 		<VALUE measured="ConfigLoader.loadConfig(String)" value="0.75"/>
@@ -197,32 +197,32 @@
 		<VALUE measured="TextArea.setFontColor(String)" value="0.16842105263157894"/>
 		<VALUE measured="TextArea.setFontSize(String)" value="0.05263157894736842"/>
 		<VALUE measured="TextArea.setFontStyle(String)" value="0.042105263157894736"/>
-		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="0.025"/>
-		<VALUE measured="TextEditor.actionPerformed(ActionEvent)" value="0.015"/>
-		<VALUE measured="TextEditor.copyText()" value="0.015"/>
-		<VALUE measured="TextEditor.createOuterFrame()" value="0.11"/>
-		<VALUE measured="TextEditor.cutText()" value="0.015"/>
-		<VALUE measured="TextEditor.extractFileExtension(String)" value="0.03"/>
-		<VALUE measured="TextEditor.insertTimeAndDate()" value="0.03"/>
-		<VALUE measured="TextEditor.main(String[])" value="0.015"/>
-		<VALUE measured="TextEditor.openFile()" value="0.16"/>
-		<VALUE measured="TextEditor.openNewWindow()" value="0.025"/>
-		<VALUE measured="TextEditor.openOdtFile(File)" value="0.055"/>
-		<VALUE measured="TextEditor.pasteText()" value="0.015"/>
-		<VALUE measured="TextEditor.printText()" value="0.035"/>
-		<VALUE measured="TextEditor.saveFile()" value="0.125"/>
-		<VALUE measured="TextEditor.search()" value="0.065"/>
-		<VALUE measured="TextEditor.selectText()" value="0.015"/>
-		<VALUE measured="TextEditor.showAbout()" value="0.02"/>
-		<VALUE measured="TextEditor.showHelp()" value="0.115"/>
-		<VALUE measured="TextEditor.updateTimeLabel()" value="0.025"/>
+		<VALUE measured="TextEditor.TextEditor(TextEditorConfig)" value="0.025252525252525252"/>
+		<VALUE measured="TextEditor.copyText()" value="0.015151515151515152"/>
+		<VALUE measured="TextEditor.createOuterFrame()" value="0.1111111111111111"/>
+		<VALUE measured="TextEditor.cutText()" value="0.015151515151515152"/>
+		<VALUE measured="TextEditor.extractFileExtension(String)" value="0.030303030303030304"/>
+		<VALUE measured="TextEditor.insertTimeAndDate()" value="0.030303030303030304"/>
+		<VALUE measured="TextEditor.main(String[])" value="0.015151515151515152"/>
+		<VALUE measured="TextEditor.openFile()" value="0.16666666666666666"/>
+		<VALUE measured="TextEditor.openNewWindow()" value="0.025252525252525252"/>
+		<VALUE measured="TextEditor.openOdtFile(File)" value="0.05555555555555555"/>
+		<VALUE measured="TextEditor.pasteText()" value="0.015151515151515152"/>
+		<VALUE measured="TextEditor.printText()" value="0.03535353535353535"/>
+		<VALUE measured="TextEditor.saveFile()" value="0.12626262626262627"/>
+		<VALUE measured="TextEditor.search()" value="0.06565656565656566"/>
+		<VALUE measured="TextEditor.selectText()" value="0.015151515151515152"/>
+		<VALUE measured="TextEditor.showAbout()" value="0.020202020202020204"/>
+		<VALUE measured="TextEditor.showHelp()" value="0.11616161616161616"/>
+		<VALUE measured="TextEditor.updateTimeLabel()" value="0.025252525252525252"/>
 		<VALUE measured="TextEditorConfig.getDefaultFont()" value="0.13043478260869565"/>
 		<VALUE measured="TextEditorConfig.getDefaultFontColour()" value="0.13043478260869565"/>
 		<VALUE measured="TextEditorConfig.getDefaultFontSize()" value="0.13043478260869565"/>
 		<VALUE measured="TextEditorConfig.setDefaultFont(String)" value="0.13043478260869565"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontColour(Color)" value="0.13043478260869565"/>
 		<VALUE measured="TextEditorConfig.setDefaultFontSize(int)" value="0.13043478260869565"/>
-		<VALUE measured="TextEditorTest.testFileExtensionCorrectlyExtract()" value="0.7796610169491526"/>
+		<VALUE measured="TextEditorGUITest.testFileExtensionCorrectlyExtract()" value="0.8070175438596491"/>
+		<VALUE measured="TextEditorGUITest.text_default_setting_should_equals_to_config_file()" value="0.15789473684210525"/>
 	</METRIC>
 	<METRIC category="Class" name="Comment lines of code" abbreviation="CLOC">
 		<VALUE measured="ConfigLoader" value="0.0"/>
@@ -232,7 +232,7 @@
 		<VALUE measured="TextArea" value="0.0"/>
 		<VALUE measured="TextEditor" value="8.0"/>
 		<VALUE measured="TextEditorConfig" value="0.0"/>
-		<VALUE measured="TextEditorTest" value="20.0"/>
+		<VALUE measured="TextEditorGUITest" value="10.0"/>
 	</METRIC>
 	<METRIC category="Class" name="Javadoc lines of code" abbreviation="JLOC">
 		<VALUE measured="ConfigLoader" value="0.0"/>
@@ -242,7 +242,7 @@
 		<VALUE measured="TextArea" value="0.0"/>
 		<VALUE measured="TextEditor" value="0.0"/>
 		<VALUE measured="TextEditorConfig" value="0.0"/>
-		<VALUE measured="TextEditorTest" value="0.0"/>
+		<VALUE measured="TextEditorGUITest" value="0.0"/>
 	</METRIC>
 	<METRIC category="Class" name="Lines of code" abbreviation="LOC">
 		<VALUE measured="ConfigLoader" value="8.0"/>
@@ -250,15 +250,15 @@
 		<VALUE measured="MenuHandler" value="68.0"/>
 		<VALUE measured="PDFConversion" value="61.0"/>
 		<VALUE measured="TextArea" value="95.0"/>
-		<VALUE measured="TextEditor" value="200.0"/>
+		<VALUE measured="TextEditor" value="198.0"/>
 		<VALUE measured="TextEditorConfig" value="23.0"/>
-		<VALUE measured="TextEditorTest" value="59.0"/>
+		<VALUE measured="TextEditorGUITest" value="57.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Comment lines of code" abbreviation="CLOC">
 		<VALUE measured="" value="0.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Comment lines of code (recursive)" abbreviation="CLOC(rec)">
-		<VALUE measured="" value="32.0"/>
+		<VALUE measured="" value="22.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Javadoc lines of code" abbreviation="JLOC">
 		<VALUE measured="" value="0.0"/>
@@ -267,37 +267,37 @@
 		<VALUE measured="" value="0.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of code" abbreviation="LOC">
-		<VALUE measured="" value="602.0"/>
+		<VALUE measured="" value="597.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of code (recursive)" abbreviation="LOC(rec)">
-		<VALUE measured="" value="602.0"/>
+		<VALUE measured="" value="597.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of product code" abbreviation="LOCp">
-		<VALUE measured="" value="540.0"/>
+		<VALUE measured="" value="537.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of product code (recursive)" abbreviation="LOCp(rec)">
-		<VALUE measured="" value="540.0"/>
+		<VALUE measured="" value="537.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of test code" abbreviation="LOCt">
-		<VALUE measured="" value="62.0"/>
+		<VALUE measured="" value="60.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Lines of test code (recursive)" abbreviation="LOCt(rec)">
-		<VALUE measured="" value="62.0"/>
+		<VALUE measured="" value="60.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Non-comment lines of code" abbreviation="NCLOC">
-		<VALUE measured="" value="578.0"/>
+		<VALUE measured="" value="583.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
-		<VALUE measured="" value="536.0"/>
+		<VALUE measured="" value="533.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Non-comment lines of code (product, recursive)" abbreviation="NCLOCp(rec)">
-		<VALUE measured="" value="536.0"/>
+		<VALUE measured="" value="533.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
-		<VALUE measured="" value="42.0"/>
+		<VALUE measured="" value="50.0"/>
 	</METRIC>
 	<METRIC category="Package" name="Non-comment lines of code (test, recursive)" abbreviation="NCLOCt(rec)">
-		<VALUE measured="" value="42.0"/>
+		<VALUE measured="" value="50.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Javadoc lines of code" abbreviation="JLOC">
 		<VALUE measured="Assignment1-2023-Luke-Any" value="0.0"/>
@@ -306,51 +306,51 @@
 		<VALUE measured="Assignment1-2023-Luke-Any" value="0.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of HTML" abbreviation="L(HTML)">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="534.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="516.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of Java" abbreviation="L(J)">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="598.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="593.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of Kotlin" abbreviation="L(KT)">
 		<VALUE measured="Assignment1-2023-Luke-Any" value="0.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of XML" abbreviation="L(XML)">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="223.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="770.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of code" abbreviation="LOC">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="1462.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="1986.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of product code" abbreviation="LOCp">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="540.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="537.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Lines of test code" abbreviation="LOCt">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="62.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="60.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Non-comment lines of code" abbreviation="NCLOC">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="1418.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="1952.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="536.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="533.0"/>
 	</METRIC>
 	<METRIC category="Module" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
-		<VALUE measured="Assignment1-2023-Luke-Any" value="42.0"/>
+		<VALUE measured="Assignment1-2023-Luke-Any" value="50.0"/>
 	</METRIC>
 	<METRIC category="FileType" name="Lines of code" abbreviation="LOC">
-		<VALUE measured="HTML" value="534.0"/>
-		<VALUE measured="Java" value="598.0"/>
+		<VALUE measured="HTML" value="516.0"/>
+		<VALUE measured="Java" value="593.0"/>
 		<VALUE measured="Markdown" value="76.0"/>
-		<VALUE measured="XML" value="223.0"/>
+		<VALUE measured="XML" value="770.0"/>
 		<VALUE measured="YAML" value="31.0"/>
 	</METRIC>
 	<METRIC category="FileType" name="Non-comment lines of code" abbreviation="NCLOC">
-		<VALUE measured="HTML" value="530.0"/>
-		<VALUE measured="Java" value="574.0"/>
+		<VALUE measured="HTML" value="512.0"/>
+		<VALUE measured="Java" value="579.0"/>
 		<VALUE measured="Markdown" value="76.0"/>
-		<VALUE measured="XML" value="207.0"/>
+		<VALUE measured="XML" value="754.0"/>
 		<VALUE measured="YAML" value="31.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Comment lines of code" abbreviation="CLOC">
-		<VALUE measured="project" value="68.0"/>
+		<VALUE measured="project" value="58.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Javadoc lines of code" abbreviation="JLOC">
 		<VALUE measured="project" value="0.0"/>
@@ -359,33 +359,33 @@
 		<VALUE measured="project" value="0.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of HTML" abbreviation="L(HTML)">
-		<VALUE measured="project" value="534.0"/>
+		<VALUE measured="project" value="516.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of Java" abbreviation="L(J)">
-		<VALUE measured="project" value="598.0"/>
+		<VALUE measured="project" value="593.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of Kotlin" abbreviation="L(KT)">
 		<VALUE measured="project" value="0.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of XML" abbreviation="L(XML)">
-		<VALUE measured="project" value="223.0"/>
+		<VALUE measured="project" value="770.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of code" abbreviation="LOC">
-		<VALUE measured="project" value="1462.0"/>
+		<VALUE measured="project" value="1986.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of product code" abbreviation="LOCp">
-		<VALUE measured="project" value="540.0"/>
+		<VALUE measured="project" value="537.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Lines of test code" abbreviation="LOCt">
-		<VALUE measured="project" value="62.0"/>
+		<VALUE measured="project" value="60.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Non-comment lines of code" abbreviation="NCLOC">
-		<VALUE measured="project" value="1418.0"/>
+		<VALUE measured="project" value="1952.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Non-comment lines of code (product)" abbreviation="NCLOCp">
-		<VALUE measured="project" value="536.0"/>
+		<VALUE measured="project" value="533.0"/>
 	</METRIC>
 	<METRIC category="Project" name="Non-comment lines of code (test)" abbreviation="NCLOCt">
-		<VALUE measured="project" value="42.0"/>
+		<VALUE measured="project" value="50.0"/>
 	</METRIC>
 </METRICS>
