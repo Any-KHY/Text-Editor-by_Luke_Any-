@@ -1,6 +1,6 @@
 # 251-Assignment1-2023-Luke-Any - Simple Text Editor
 
-### by : Luke & Any
+### by : [Luke](https://github.com/lukew3531) & [Any](https://github.com/Any-KHY)
 
 ### **13065772 Luke Wakefield**
 
